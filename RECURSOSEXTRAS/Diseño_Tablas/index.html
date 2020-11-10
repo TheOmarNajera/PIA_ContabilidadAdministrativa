@@ -21,6 +21,21 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
+	<script>
+		//Función que realiza la suma
+		function Suma() {
+			var ingreso1 = document.calculadora.ingreso1.value;
+			var ingreso2 = document.calculadora.ingreso2.value;
+			try {
+				//Calculamos el número escrito:
+				ingreso1 = (isNaN(parseInt(ingreso1))) ? 0 : parseInt(ingreso1);
+				ingreso2 = (isNaN(parseInt(ingreso2))) ? 0 : parseInt(ingreso2);
+				document.calculadora.resultado.value = ingreso1 + ingreso2;
+			}
+			//Si se produce un error no hacemos nada
+			catch (e) { }
+		}
+	</script>
 </head>
 
 <body>
@@ -28,7 +43,7 @@
 		<div class="container-table100">
 			<div class="wrap-table100">
 				<div class="table100">
-					<form action="" method="POST">
+					<form name="calculadora" action="" method="POST">
 						<table>
 							<thead>
 								<tr class="table100-head">
@@ -282,7 +297,8 @@
 									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
 									<td>&nbsp;</td>
 									<td colspan="3"><strong>PASIVO TOTAL</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="text" name="PC_s1" placeholder="Insertar Dato" name="ingreso1"
+											onKeyUp="Suma()"></td>
 								</tr>
 								<tr>
 									<td colspan="3">Planta y Equipo</td>
@@ -310,7 +326,8 @@
 								<tr>
 									<td colspan="5">&nbsp;</td>
 									<td colspan="3"><strong>CAPITAL CONTABLE TOTAL</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="text" name="PC_s1" placeholder="Insertar Dato" name="ingreso2"
+											onKeyUp="Suma()"></td>
 								</tr>
 								<tr>
 									<td colspan="9">&nbsp;</td>
@@ -320,7 +337,8 @@
 									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
 									<td>&nbsp;</td>
 									<td colspan="3"><strong>Suma del PASIVO Y CAPITAL</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="text" name="PC_s1" placeholder="Insertar Dato" name="resultado"
+											disabled></td>
 								</tr>
 							</tbody>
 						</table>
