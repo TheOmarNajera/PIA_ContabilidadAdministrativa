@@ -21,21 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
-	<script>
-		//Función que realiza la suma
-		function Suma() {
-			var ingreso1 = document.calculadora.ingreso1.value;
-			var ingreso2 = document.calculadora.ingreso2.value;
-			try {
-				//Calculamos el número escrito:
-				ingreso1 = (isNaN(parseInt(ingreso1))) ? 0 : parseInt(ingreso1);
-				ingreso2 = (isNaN(parseInt(ingreso2))) ? 0 : parseInt(ingreso2);
-				document.calculadora.resultado.value = ingreso1 + ingreso2;
-			}
-			//Si se produce un error no hacemos nada
-			catch (e) { }
-		}
-	</script>
+	<script type = "text/javascript" src = "js/balance.js" ></script>
 </head>
 
 <body>
@@ -231,7 +217,7 @@
 						<table>
 							<thead>
 								<tr class="table100-head">
-									<th colspan="6" style="text-align: right;">Balance General al 31 de Diciembre del
+									<th colspan="6" style="text-align: right;">Balance General al 31 de Diciembre del <!--BALANCE GENERAL BALANCE GENERAL-->
 									</th>
 									<th colspan="3" style="text-align: left;">2015</th>
 								</tr>
@@ -244,101 +230,98 @@
 								</tr>
 								<tr>
 									<td colspan="3">Efectivo</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "efec" step="0.001" oninput="activo()"></td>
 									<td>&nbsp;</td>
 									<td colspan="3">Proveedores</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "prov" step="0.001" oninput="pasivoCapital()"></td>
 								</tr>
 								<tr>
 									<td colspan="3">Clientes</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "clts" step="0.001" oninput="activo()"></td>
 									<td>&nbsp;</td>
 									<td colspan="3">Documentos por Pagar</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "dxp" step="0.001" oninput="pasivoCapital()"></td>
 								</tr>
 								<tr>
 									<td colspan="3">Deudores Diversos</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "deuddiv" step="0.001" oninput="activo()"></td>
 									<td>&nbsp;</td>
 									<td colspan="3">ISR por Pagar</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "ixp" step="0.001" oninput="pasivoCapital()"></td>
 								</tr>
 								<tr>
 									<td colspan="3">Funcionarios y Empleados</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "funcyemp" step="0.001" oninput="activo()"></td>
 									<td>&nbsp;</td>
 									<td colspan="3"><strong>Total de Pasivo Corto Plazo</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" id = "total_pascp" step="0.001"></td>
 								</tr>
 								<tr>
 									<td colspan="3">Inventario de materiales</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "invdemat" step="0.001" oninput="activo()"></td>
 									<td colspan="5">&nbsp;</td>
 								</tr>
 								<tr>
 									<td colspan="3">Inventario de Producto Terminado</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "invprodter" step="0.001" oninput="activo()"></td>
 									<td>&nbsp;</td>
 									<td colspan="3">Préstamos Bancarios</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "pb" step="0.001" oninput="pasivoCapital()"></td>
 								</tr>
 								<tr>
 									<td colspan="3"><strong>Total de Activo Circulante</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" id = "total_ac" step="0.001"></td>
 									<td>&nbsp;</td>
 									<td colspan="3"><strong>Total de Pasivo Largo Plazo</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" id = "totalpaslp" step="0.001"></td>
 								</tr>
 								<tr>
 									<td colspan="9">&nbsp;</td>
 								</tr>
 								<tr>
 									<td colspan="3">Terreno</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "terr" step="0.001" oninput="activo()"></td>
 									<td>&nbsp;</td>
 									<td colspan="3"><strong>PASIVO TOTAL</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato" name="ingreso1"
-											onKeyUp="Suma()"></td>
+									<td><input type="number" id = "totalpasivos" step="0.001"></td>
 								</tr>
 								<tr>
 									<td colspan="3">Planta y Equipo</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "plantayeq" step="0.001" oninput="activo()"></td>
 									<td colspan="5">&nbsp;</td>
 								</tr>
 								<tr>
 									<td colspan="3">Depreciación Acumulada</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "depacu" step="0.001" oninput="activo()"></td>
 									<td>&nbsp;</td>
 									<td colspan="4" style="text-align: center;"><strong>CAPITAL CONTABLE</strong></td>
 								</tr>
 								<tr>
 									<td colspan="3"><strong>Total de Activo No Circulante</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" id = "total_anc" step="0.001"></td>
 									<td>&nbsp;</td>
 									<td colspan="3">Capital Contribuido</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "cc" step="0.001" oninput="pasivoCapital()"></td>
 								</tr>
 								<tr>
 									<td colspan="5">&nbsp;</td>
 									<td colspan="3">Capital Ganado</td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "cg" step="0.001" oninput="pasivoCapital()"></td>
 								</tr>
 								<tr>
 									<td colspan="5">&nbsp;</td>
 									<td colspan="3"><strong>CAPITAL CONTABLE TOTAL</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato" name="ingreso2"
-											onKeyUp="Suma()"></td>
+									<td><input type="number" id = "cct" step="0.001"></td>
 								</tr>
 								<tr>
 									<td colspan="9">&nbsp;</td>
 								</tr>
 								<tr>
 									<td colspan="3"><strong>ACTIVO TOTAL</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato"></td>
+									<td><input type="number" name="" id = "total_activos" step = "0.001"></td>
 									<td>&nbsp;</td>
 									<td colspan="3"><strong>Suma del PASIVO Y CAPITAL</strong></td>
-									<td><input type="text" name="PC_s1" placeholder="Insertar Dato" name="resultado"
-											disabled></td>
+									<td><input type="number" id = "spc" step="0.001"></td>
 								</tr>
 							</tbody>
 						</table>
