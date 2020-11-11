@@ -19,5 +19,7 @@ from ContabilidadAdmin import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index, name='index')
+    path('',views.index, name='index'),
+    path('resultado/',views.resultado, name='resultado'),
+    path('pasado/',views.pasado, name='pasado')
 ]
