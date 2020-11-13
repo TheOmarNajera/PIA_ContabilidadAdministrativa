@@ -53,30 +53,30 @@
                                     <td></td>
                                     <td> 1er. Semestre </td>
                                     <td> 2do. Semestre </td>
-                                    <td> Total 2009 </td>
+                                    <td> Total {{YearNow}} </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="juan" colspan="1">PRODUCTO CL</td>
+                                    <td class="juan" colspan="1">PRODUCTO A</td>
 
                                 </tr>
                                 <tr>
                                     <td>Unidades a vender</td>
-                                    <td> 12,000 </td>
-                                    <td> 10,000 </td>
+                                    <td>{{VP_AS1}}</td>
+                                    <td>{{VP_AS2}}</td>
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>Precio de Venta</td>
-                                    <td> $300 </td>
-                                    <td> $320 </td>
+                                    <td>{{PV_AS1}}</td>
+                                    <td>{{PV_AS2}}</td>
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>Importe de Venta</td>
-                                    <td> $3,600,000 </td>
-                                    <td> $3,200,000 </td>
-                                    <td> $6,800,000 </td>
+                                    <td>{{PA_IV_S1}}</td>
+                                    <td>{{PA_IV_S2}}</td>
+                                    <td>{{Total_PAI}}</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -85,28 +85,28 @@
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="juan" colspan="1">PRODUCTO CE</td>
+                                    <td class="juan" colspan="1">PRODUCTO B</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>Unidades a vender</td>
-                                    <td> 13,500 </td>
-                                    <td> 11,800 </td>
+                                    <td>{{VP_BS1}}</td>
+                                    <td>{{VP_BS2}}</td>
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>Precio de Venta</td>
-                                    <td> $280 </td>
-                                    <td> $310 </td>
+                                    <td>{{PV_BS1}}</td>
+                                    <td>{{PV_BS2}}</td>
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>Importe de Venta</td>
-                                    <td> $3,780,000 </td>
-                                    <td> $3,658,000 </td>
-                                    <td> $7,438,000 </td>
+                                    <td>{{PB_IV_S1}}</td>
+                                    <td>{{PB_IV_S2}}</td>
+                                    <td>{{Total_PBI}}</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -115,34 +115,34 @@
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="juan" colspan="1">PRODUCTO CR</td>
+                                    <td class="juan" colspan="1">PRODUCTO C</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>Unidades a vender</td>
-                                    <td> 7,000 </td>
-                                    <td> 8,500 </td>
+                                    <td>{{VP_CS1}}</td>
+                                    <td>{{VP_CS2}}</td>
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>Precio de Venta</td>
-                                    <td> $185 </td>
-                                    <td> $200 </td>
+                                    <td>{{PV_CS1}}</td>
+                                    <td>{{PV_CS2}}</td>
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>Importe de Venta</td>
-                                    <td> $1,295,000 </td>
-                                    <td> $1,700,000 </td>
-                                    <td> $2,995,000 </td>
+                                    <td>{{PC_IV_S1}}</td>
+                                    <td>{{PC_IV_S2}}</td>
+                                    <td>{{Total_PCI}}</td>
                                 </tr>
                                 <tr>
                                     <td>Total de Ventas por Semestre</td>
-                                    <td> $8,675,000 </td>
-                                    <td> $8,558,000 </td>
-                                    <td> $17,233,000 </td>
+                                    <td>{{PVABC_S1}}</td>
+                                    <td>{{PVABC_S2}}</td>
+                                    <td>{{Total_PV}}</td>
                                 </tr>
                             </form>
                         </tbody>
@@ -164,21 +164,21 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>Saldo de clientes 31-Dic-2015</td>
+                                <td>Saldo de clientes 31-Dic-{{Year}}</td>
                                 <td>&nbsp;</td>
-                                <td> $80,000 </td>
-                                <td> (R. Balance 2015) </td>
+                                <td>{{Clientes}}</td>
+                                <td> (R. Balance {{Year}}) </td>
                             </tr>
                             <tr>
-                                <td>Ventas 2016</td>
+                                <td>Ventas {{YearNow}}</td>
                                 <td>&nbsp;</td>
-                                <td> 17,233,000 </td>
+                                <td>{{Total_PV}}</td>
                                 <td> (1. Presupuesto de Ventas) </td>
                             </tr>
                             <tr>
-                                <td>Total de Clientes 2016</td>
+                                <td>Total de Clientes {{YearNow}}</td>
                                 <td>&nbsp;</td>
-                                <td> 17,313,000 </td>
+                                <td>{{Total_Clientes_2001}}</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
@@ -194,33 +194,33 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>Por Cobranza del 2015</td>
-                                <td> 80,000 </td>
-                                <td>(R. 100%)</td>
+                                <td>Por Cobranza del {{Year}}</td>
+                                <td>{{Por_Cobranza2000}}</td>
+                                <td>(R. {{SC_AAn}}%)</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>Por Cobranza del 2016</td>
-                                <td> 13,786,400 </td>
-                                <td>(R. 80%)</td>
+                                <td>Por Cobranza del {{YearNow}}</td>
+                                <td>{{Por_Cobranza2001}}</td>
+                                <td>(R. {{VP_AAc}}%)</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>Total de Entradas 2016:</td>
+                                <td>Total de Entradas {{YearNow}}:</td>
                                 <td>&nbsp;</td>
-                                <td> 13,866,400 </td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td>{{TotalEntradas2001}}</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>Saldo de Clientes del 2016</td>
                                 <td>&nbsp;</td>
-                                <td> $3,446,600 </td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Saldo de Clientes del {{YearNow}}</td>
+                                <td>&nbsp;</td>
+                                <td>{{Saldo_Clientes2001}}</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
@@ -247,7 +247,7 @@
                                 <td> Total 2009 </td>
                             </tr>
                             <tr>
-                                <td class="juan" colspan="1">PRODUCTO CL</td>
+                                <td class="juan" colspan="1">PRODUCTO A</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
@@ -257,6 +257,7 @@
                                 <td> 12,000 </td>
                                 <td> 10,000 </td>
                                 <td> 22,000 </td>
+                                    
                             </tr>
                             <tr>
                                 <td>(+) Inventario Final</td>
@@ -289,7 +290,7 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td class="juan" colspan="1">PRODUCTO CE</td>
+                                <td class="juan" colspan="1">PRODUCTO B</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
@@ -331,7 +332,7 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td class="juan" colspan="1">PRODUCTO CR</td>
+                                <td class="juan" colspan="1">PRODUCTO C</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
