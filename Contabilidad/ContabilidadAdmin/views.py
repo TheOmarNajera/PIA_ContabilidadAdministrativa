@@ -8,6 +8,7 @@ def index(request):
 def pasado(request):
         if request.method == 'POST':
         # -----------------------------------
+            Empresa = request.POST['Empresa']
             # Tabla 1
             MPA_S1 = float(request.POST['MPA_S1'])
             MPA_S2 = float(request.POST['MPA_S2'])
@@ -161,6 +162,7 @@ def pasado(request):
             D47 = B47 + C47
 
         return render(request,'TablasEvidencia.html',{
+            'Empresa' : Empresa,
             'MPA_S1' : MPA_S1,
             'MPA_S2' : MPA_S2,
             'MPA_CS1' : MPA_CS1,
