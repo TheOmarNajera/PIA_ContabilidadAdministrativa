@@ -28,11 +28,11 @@ def pasado(request):
             PA_S1 = float(request.POST['PA_S1'])
             PA_S2 = float(request.POST['PA_S2'])
         # -----------------------------------
-            PA_S1 = float(request.POST['PB_S1'])
-            PA_S2 = float(request.POST['PB_S2'])
+            PB_S1 = float(request.POST['PB_S1'])
+            PB_S2 = float(request.POST['PB_S2'])
         # -----------------------------------
-            PA_S1 = float(request.POST['PC_S1'])
-            PA_S2 = float(request.POST['PC_S2'])
+            PC_S1 = float(request.POST['PC_S1'])
+            PC_S2 = float(request.POST['PC_S2'])
         # -----------------------------------
             # Tabla 2
             PV_AS1 = float(request.POST['PV_AS1'])
@@ -136,7 +136,7 @@ def pasado(request):
             #--
             PC_IV_S1 = VP_CS1 * PV_CS1
             PC_IV_S2 = VP_CS2 * PV_CS2
-            Total_PCI = PC_IV_S1 * PC_IV_S2
+            Total_PCI = PC_IV_S1 + PC_IV_S2
             #--
             PVABC_S1 = PA_IV_S1 + PB_IV_S1 + PC_IV_S1
             PVABC_S2 = PA_IV_S2 + PB_IV_S2 + PC_IV_S2
@@ -159,10 +159,26 @@ def pasado(request):
             C47 = C45 - C46
             D43 = VP_AS1 + VP_AS2
             D45 = D43 + PA_S2
-            D47 = B47 + C47
+            D47 = B47
+            otro = B46 + C46
+            D50 = VP_BS1 + VP_BS2
+            B52 = VP_BS1 + PB_S1
+            C52 = VP_BS2 + PB_S2
+            D52 = D50 + PB_S2
+            B54 = B52 - PB_S1
+            C54 = C52 - PB_S1
+            D54 = D52 - PB_S1
+            D57 = VP_CS1 + VP_CS2
+            B59 = VP_CS1 + PC_S1
+            C59 = VP_CS2 + PC_S2
+            D59 = D57 + PC_S2
+            B61 = B59 - PC_S1
+            C61 = C59 - PC_S1
+            D61 = D59 - PC_S1
 
         return render(request,'TablasEvidencia.html',{
             'Empresa' : Empresa,
+            'otro' : otro,
             'MPA_S1' : MPA_S1,
             'MPA_S2' : MPA_S2,
             'MPA_CS1' : MPA_CS1,
@@ -177,10 +193,10 @@ def pasado(request):
             'MPC_CS2' : MPC_CS2,  
             'PA_S1' : PA_S1,  
             'PA_S2' : PA_S2,  
-            'PA_S1' : PA_S1,  
-            'PA_S2' : PA_S2,  
-            'PA_S1' : PA_S1,  
-            'PA_S2' : PA_S2,  
+            'PB_S1' : PB_S1,  
+            'PB_S2' : PB_S2,  
+            'PC_S1' : PC_S1,  
+            'PC_S2' : PC_S2,  
             'PV_AS1' : PV_AS1,  
             'PV_BS1' : PV_BS1,  
             'PV_CS1' : PV_CS1,  
@@ -281,6 +297,20 @@ def pasado(request):
             'D43' : D43,
             'D45' : D45,
             'D47' : D47,
+            'D50' : D50,
+            'B52' : B52,
+            'C52' : C52,
+            'D52' : D52,
+            'B54' : B54,
+            'C54' : C54,
+            'D54' : D54,
+            'D57' : D57,
+            'B59' : B59,
+            'C59' : C59,
+            'D59' : D59,
+            'B61' : B61,
+            'C61' : C61,
+            'D61' : D61,
             'YearNow' : YearNow
         })
 
