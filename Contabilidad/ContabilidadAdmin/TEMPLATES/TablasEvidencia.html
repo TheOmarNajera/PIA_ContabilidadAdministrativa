@@ -22,6 +22,15 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <!--===============================================================================================-->
+    <script>
+    function multi(p1, p2) {
+        var p1 = parseInt(p1);
+        var p2 = parseInt(p2);
+        return p1 * p2;
+    }
+    </script>
+
+
 </head>
 
 <body>
@@ -398,9 +407,9 @@
                             </tr>
                             <tr>
                                 <td>Unidades a producir</td>
-                                <td>{{B46}}</td>
-                                <td>{{C46}}</td>
-                                <td>{{otro}}</td>
+                                <td><div id = "b46">{{B46}}</div></td>
+                                <td><div id = "c46">{{C46}}</div></td>
+                                <td id = "otro">{{otro}}</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -416,15 +425,30 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de material</td>
-                                <td>{{RM_MPA_PA}}</td>
-                                <td>{{RM_MPA_PA}}</td>
-                                <td>{{RM_MPA_PA}}</td>
+                                <td><div id = "RMMPAPA1">{{RM_MPA_PA}}</div></td>
+                                <td><div id = "RMMPAPA2">{{RM_MPA_PA}}</div></td>
+                                <td id = "RMMPAPA3">{{RM_MPA_PA}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Material A requerido</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>
+                                var uno = parseFloat(document.getElementById("b46").innerHTML);
+                                var dos = parseFloat(document.getElementById("RMMPAPA1").innerHTML);
+                                document.write(uno*dos);
+                                var tmar1 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                var uno = parseFloat(document.getElementById("c46").innerHTML);
+                                var dos = parseFloat(document.getElementById("RMMPAPA2").innerHTML);
+                                document.write(uno*dos);
+                                var tma2r1 = uno*dos
+                                </script></td>
+                                <td><script>
+                                var uno = parseFloat(document.getElementById("otro").innerHTML);
+                                var dos = parseFloat(document.getElementById("RMMPAPA3").innerHTML);
+                                document.write(uno*dos);
+                                var tma3r1 = uno*dos
+                                </script></td>
                             </tr>
                             <tr>
                                 <td class="juan" colspan="1">Material B</td>
@@ -434,15 +458,31 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de material</td>
-                                <td>{{RM_MPB_PA}}</td>
-                                <td>{{RM_MPB_PA}}</td>
-                                <td>{{RM_MPB_PA}}</td>
+                                <td id = RMMPBPA1>{{RM_MPB_PA}}</td>
+                                <td id = RMMPBPA2>{{RM_MPB_PA}}</td>
+                                <td id = RMMPBPA3>{{RM_MPB_PA}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Material B requerido</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>                                
+                                    var uno = parseFloat(document.getElementById("b46").innerHTML);
+                                    var dos = parseFloat(document.getElementById("RMMPAPA1").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmbr1 = uno*dos
+                                    </script></td>
+                                    
+                                <td><script>                             
+                                    var uno = parseFloat(document.getElementById("c46").innerHTML);
+                                    var dos = parseFloat(document.getElementById("RMMPAPA2").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmb2r1 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("otro").innerHTML);
+                                    var dos = parseFloat(document.getElementById("RMMPAPA3").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmb3r1 = uno*dos
+                                </script></td>
                             </tr>
                             <tr>
                                 <td class="juan" colspan="1">Material C</td>
@@ -452,15 +492,33 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de material</td>
-                                <td>{{RM_MPC_PA}}</td>
-                                <td>{{RM_MPC_PA}}</td>
-                                <td>{{RM_MPC_PA}}</td>
+                                <td id = rmmpcpa1>{{RM_MPC_PA}}</td>
+                                <td id = rmmpcpa2>{{RM_MPC_PA}}</td>
+                                <td id = rmmpcpa3>{{RM_MPC_PA}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Material C requerido</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("b46").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpcpa1").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmcr1 = uno*dos
+                                </script>
+                                </td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("c46").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpcpa2").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmc2r1 = uno*dos
+                                </script>
+                                </td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("otro").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpcpa3").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmc3r1 = uno*dos
+                                </script>
+                                </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -476,9 +534,9 @@
                             </tr>
                             <tr>
                                 <td>Unidades a producir</td>
-                                <td>{{B54}}</td>
-                                <td>{{C54}}</td>
-                                <td>{{D54}}</td>
+                                <td id = "b54">{{B54}}</td>
+                                <td id = "c54">{{C54}}</td>
+                                <td id = "d54">{{D54}}</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -494,15 +552,31 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de material</td>
-                                <td>{{RM_MPA_PB}}</td>
-                                <td>{{RM_MPA_PB}}</td>
-                                <td>{{RM_MPA_PB}}</td>
+                                <td id = "rmmpapb1">{{RM_MPA_PB}}</td>
+                                <td id = "rmmpapb2">{{RM_MPA_PB}}</td>
+                                <td id = "rmmpapb3">{{RM_MPA_PB}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Material A requerido</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("b54").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpapb1").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmar2 = uno*dos
+                                </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("c54").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpapb2").innerHTML);
+                                    document.write(uno*dos);
+                                    var tma2r2 = uno*dos
+                                </script></td>
+                                <td><script>                                    
+                                    var uno = parseFloat(document.getElementById("d54").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpapb3").innerHTML);
+                                    document.write(uno*dos);
+                                    var tma3r2 = uno*dos
+                                    </script></td>
+                                    
                             </tr>
                             <tr>
                                 <td class="juan" colspan="1">Material B</td>
@@ -512,15 +586,30 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de material</td>
-                                <td>{{RM_MPB_PB}}</td>
-                                <td>{{RM_MPB_PB}}</td>
-                                <td>{{RM_MPB_PB}}</td>
+                                <td id = "rmmpbpb1">{{RM_MPB_PB}}</td>
+                                <td id = "rmmpbpb2">{{RM_MPB_PB}}</td>
+                                <td id = "rmmpbpb3">{{RM_MPB_PB}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Material B requerido</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("b54").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpbpb1").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmbr2 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("c54").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpbpb2").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmb2r2 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("d54").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpbpb3").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmb3r2 = uno*dos
+                                </script></td>
                             </tr>
                             <tr>
                                 <td class="juan" colspan="1">Material C</td>
@@ -530,15 +619,30 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de material</td>
-                                <td>{{RM_MPC_PB}}</td>
-                                <td>{{RM_MPC_PB}}</td>
-                                <td>{{RM_MPC_PB}}</td>
+                                <td id = rmmpcpb1>{{RM_MPC_PB}}</td>
+                                <td id = rmmpcpb2>{{RM_MPC_PB}}</td>
+                                <td id = rmmpcpb3>{{RM_MPC_PB}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Material C requerido</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("b54").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpcpb1").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmcr2 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("c54").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpcpb2").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmc2r2 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("d54").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpcpb3").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmc3r2 = uno*dos
+                                </script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -554,9 +658,9 @@
                             </tr>
                             <tr>
                                 <td>Unidades a producir</td>
-                                <td>{{B61}}</td>
-                                <td>{{C61}}</td>
-                                <td>{{D61}}</td>
+                                <td id = "b61">{{B61}}</td>
+                                <td id = "c61">{{C61}}</td>
+                                <td id = "d61">{{D61}}</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -572,15 +676,30 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de material</td>
-                                <td>{{RM_MPA_PC}}</td>
-                                <td>{{RM_MPA_PC}}</td>
-                                <td>{{RM_MPA_PC}}</td>
+                                <td id = "rmmpapc1">{{RM_MPA_PC}}</td>
+                                <td id = "rmmpapc2">{{RM_MPA_PC}}</td>
+                                <td id = "rmmpapc3">{{RM_MPA_PC}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Material A requerido</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td id = "test1"><script>
+                                    var uno = parseFloat(document.getElementById("b61").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpapc1").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmar3 = uno*dos
+                                </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("c61").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpapc2").innerHTML);
+                                    document.write(uno*dos);
+                                    var tma2r3 = uno*dos
+                                </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("d61").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rmmpapc3").innerHTML);
+                                    document.write(uno*dos);
+                                    var tma3r3 = uno*dos
+                                </script></td>
                             </tr>
                             <tr>
                                 <td class="juan" colspan="1">Material B</td>
@@ -590,15 +709,30 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de material</td>
-                                <td>{{RM_MPB_PC}}</td>
-                                <td>{{RM_MPB_PC}}</td>
-                                <td>{{RM_MPB_PC}}</td>
+                                <td id = rm_mpb_pc1>{{RM_MPB_PC}}</td>
+                                <td id = rm_mpb_pc2>{{RM_MPB_PC}}</td>
+                                <td id = rm_mpb_pc3>{{RM_MPB_PC}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Material B requerido</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("b61").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rm_mpb_pc1").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmbr3 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("c61").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rm_mpb_pc2").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmb2r3 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("d61").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rm_mpb_pc3").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmb3r3 = uno*dos
+                                </script></td>
                             </tr>
                             <tr>
                                 <td class="juan" colspan="1">Material C</td>
@@ -608,15 +742,30 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de material</td>
-                                <td>{{RM_MPC_PC}}</td>
-                                <td>{{RM_MPC_PC}}</td>
-                                <td>{{RM_MPC_PC}}</td>
+                                <td id = "rm_mpc_pc1">{{RM_MPC_PC}}</td>
+                                <td id = "rm_mpc_pc2">{{RM_MPC_PC}}</td>
+                                <td id = "rm_mpc_pc3">{{RM_MPC_PC}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Material C requerido</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("b61").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rm_mpc_pc1").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmcr3 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("c61").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rm_mpc_pc2").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmc2r3 = uno*dos
+                                    </script></td>
+                                <td><script>
+                                    var uno = parseFloat(document.getElementById("d61").innerHTML);
+                                    var dos = parseFloat(document.getElementById("rm_mpc_pc3").innerHTML);
+                                    document.write(uno*dos);
+                                    var tmc3r3 = uno*dos
+                                </script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -638,21 +787,21 @@
                             </tr>
                             <tr>
                                 <td>Material A</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>document.write(tmar1 + tmar2 + tmar3);</script></td>
+                                <td><script>document.write(tma2r1 + tma2r2 + tma2r3);</script></td>
+                                <td><script>document.write(tma3r1 + tma3r2 + tma3r3);</script></td>
                             </tr>
                             <tr>
                                 <td>Material B</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>document.write(tmbr1 + tmbr2 + tmbr3);</script></td>
+                                <td><script>document.write(tmb2r1 + tmb2r2 + tmb2r3);</script></td>
+                                <td><script>document.write(tmb3r1 + tmb3r2 + tmb3r3);</script></td>
                             </tr>
                             <tr>
                                 <td>Material C</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>document.write(tmcr1 + tmcr2 + tmcr3);</script></td>
+                                <td><script>document.write(tmc2r1 + tmc2r2 + tmc2r3);</script></td>
+                                <td><script>document.write(tmc3r1 + tmc3r2 + tmc3r3);</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
