@@ -787,15 +787,27 @@
                             </tr>
                             <tr>
                                 <td>Material A</td>
-                                <td><script>document.write(tmar1 + tmar2 + tmar3);</script></td>
-                                <td><script>document.write(tma2r1 + tma2r2 + tma2r3);</script></td>
-                                <td><script>document.write(tma3r1 + tma3r2 + tma3r3);</script></td>
+                                <td><script>document.write(tmar1 + tmar2 + tmar3);
+                                var t1 = tmar1 + tmar2 + tmar3 
+                                </script></td> 
+                                <td><script>document.write(tma2r1 + tma2r2 + tma2r3);
+                                var t2 = tma2r1 + tma2r2 + tma2r3
+                                </script></td>
+                                <td><script>document.write(tma3r1 + tma3r2 + tma3r3);
+                                var t3 = tma3r1 + tma3r2 + tma3r3
+                                </script></td>
                             </tr>
                             <tr>
                                 <td>Material B</td>
-                                <td><script>document.write(tmbr1 + tmbr2 + tmbr3);</script></td>
-                                <td><script>document.write(tmb2r1 + tmb2r2 + tmb2r3);</script></td>
-                                <td><script>document.write(tmb3r1 + tmb3r2 + tmb3r3);</script></td>
+                                <td><script>document.write(tmbr1 + tmbr2 + tmbr3);
+                                var b1 = tmbr1 + tmbr2 + tmbr3
+                                </script></td>
+                                <td><script>document.write(tmb2r1 + tmb2r2 + tmb2r3);
+                                var b2 = tmb2r1 + tmb2r2 + tmb2r3
+                                </script></td>
+                                <td><script>document.write(tmb3r1 + tmb3r2 + tmb3r3);
+                                var b3 = tmb3r1 + tmb3r2 + tmb3r3
+                                </script></td>
                             </tr>
                             <tr>
                                 <td>Material C</td>
@@ -835,33 +847,53 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de materiales</td>
-                                <td> 42,200 </td>
-                                <td> 34,460 </td>
-                                <td> 76,660 </td>
+                                <td id><script>document.write(tmar1 + tmar2 + tmar3);</script></td>
+                                <td id><script>document.write(tma2r1 + tma2r2 + tma2r3);</script></td>
+                                <td id><script>document.write(tma3r1 + tma3r2 + tma3r3);</script></td>  
                             </tr>
                             <tr>
                                 <td>Inventario Final</td>
-                                <td>{{MPA_S1}}</td>
-                                <td>{{MPA_S2}}</td>
-                                <td>{{MPA_S2}}</td>
+                                <td id = "mpas1">{{MPA_S1}}</td>
+                                <td id = "mpas2">{{MPA_S2}}</td>
+                                <td id = "mpas22">{{MPA_S2}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Materiales</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script>
+                                    var dos = parseFloat(document.getElementById("mpas1").innerHTML);
+                                    document.write(t1+dos);
+                                    mc1 = t1+dos
+                                    </script></td>
+                                <td><script>
+                                    var tres = parseFloat(document.getElementById("mpas2").innerHTML);
+                                    document.write(t2+tres);
+                                    mc2 = t2+tres
+                                    </script></td>
+                                <td><script>
+                                    var cuatro = parseFloat(document.getElementById("mpas22").innerHTML);
+                                    document.write(t3+cuatro);
+                                    mc3 = t3+cuatro
+                                    </script></td>
                             </tr>
                             <tr>
                                 <td>Inventario Inicial</td>
-                                <td>{{MPA_S1}}</td>
+                                <td id = "MPA_S1">{{MPA_S1}}</td>
                                 <td>{{MPA_S1}}</td>
                                 <td>{{MPA_S1}}</td>
                             </tr>
                             <tr>
                                 <td>Material a comprar</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td><script id = test001>var uno = parseFloat(document.getElementById("MPA_S1").innerHTML);
+                                document.write(mc1-uno)</script></td>
+                                <td><script>
+                                    var i = parseFloat(document.getElementById("MPA_S1").innerHTML);
+                                    document.write(mc2-i)
+                                </script></td>
+                                <td><script>
+                                    var i2 = parseFloat(document.getElementById("MPA_S1").innerHTML);
+                                    var ie = mc3-i2
+                                    document.write(ie)
+                                </script></td>
                             </tr>
                             <tr>
                                 <td>Precio de Compra</td>
