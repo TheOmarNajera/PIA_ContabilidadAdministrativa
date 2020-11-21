@@ -3,7 +3,7 @@
 <html lang="es">
 
 <head>
-	<title>Table V01</title>
+	<title>Presupuesto Maestro | Requisitos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -26,11 +26,17 @@
 </head>
 
 <body>
+	<div style="display: block; background-color: rgba(255, 0, 0, 0.604);">
+        <br>
+        <h2 style="color: white; text-align: center; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Información Requerida</h2>
+        <br>
+    </div>
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
 				<div class="table100">
 					<form name="calculadora" action="{% url 'pasado' %}" method="POST">
+						<br></br>
 						{% csrf_token %}
 						<table>
 							<thead>
