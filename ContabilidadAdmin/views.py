@@ -408,3 +408,6 @@ def pasado(request):
 
 def resultado(request):
     return render(request, 'TablasEvidencia.html')
+
+def inicio(request):
+    return render(request,'inicio.html')
