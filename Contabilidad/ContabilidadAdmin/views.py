@@ -176,6 +176,58 @@ def pasado(request):
             C61 = C59 - PC_S1
             D61 = D59 - PC_S1
 
+            # 6 Determinacion
+            TotalProveedoresNow = Proveedores * (SP_AAn/100)
+
+            # 8 Presupuesto de Gastos
+            GIF_DM = GIF_D/2
+            GIF_SegM = GIF_Seg/2
+            GIF_MTotal = GIF_MS1 + GIF_MS2
+            GIF_ETotal = GIF_ES1 + GIF_ES2
+            GIF_VAM = GIF_VA/2
+            TotalGIF1 = GIF_DM + GIF_SegM + GIF_MS1 + GIF_ES1 + GIF_VAM
+            TotalGIF2 = GIF_DM + GIF_SegM + GIF_MS2 + GIF_ES2 + GIF_VAM
+            TotalGIF = TotalGIF1 + TotalGIF2
+
+
+            # 9 Presupuesto de Gastos de Operación
+            GAV_DM = GAV_D/2
+            GAV_SYSM = GAV_SYS/2
+            GAV_Com1 = (GAV_Com/100)*PVABC_S1
+            GAV_Com2 = (GAV_Com/100)*PVABC_S2
+            GAV_ComTotal = GAV_Com2 + GAV_Com1
+            GAV_VTotal = GAV_VS1 + GAV_VS2
+            GAV_IPPM = GAV_IPP/2
+            GOTotal1 = GAV_DM + GAV_SYSM + GAV_Com1 + GAV_VS1 + GAV_IPPM
+            GOTotal2 = GAV_DM + GAV_SYSM + GAV_Com2 + GAV_VS2 + GAV_IPPM
+            GOTotal = GOTotal1 + GOTotal2
+
+            # 10 Determinacion del Costo Unitario de Produccion
+            DCUAA = MPA_CS2 * RM_MPA_PA
+            DCUAB = MPB_CS2 * RM_MPB_PA
+            DCUAC = MPC_CS2 * RM_MPC_PA
+            DCUAMO = MOD_S2 * RM_MO_PA
+
+            DCUBA = MPA_CS2 * RM_MPA_PB
+            DCUBB = MPB_CS2 * RM_MPB_PB
+            DCUBC = MPC_CS2 * RM_MPC_PB
+            DCUBMO = MOD_S2 * RM_MO_PB
+
+            DCUCA = MPA_CS2 * RM_MPA_PC
+            DCUCB = MPB_CS2 * RM_MPB_PC
+            DCUCC = MPC_CS2 * RM_MPC_PC
+            DCUCMO = MOD_S2 * RM_MO_PC
+
+            # 11 Valuación de Inventarios FInales
+            IFMMA = MPA_S2 * MPA_CS2
+            IFMMB = MPB_S2 * MPB_CS2
+            IFMMC = MPC_S2 * MPC_CS2
+            IFM = IFMMA + IFMMB + IFMMC
+
+            # Estado de Flujo de Efectivo
+            TotalEntry = VP_AAc + SC_AAn
+            EfectivoDisponible = TotalEntry + Efectivo
+
         return render(request,'TablasEvidencia.html',{
             'Empresa' : Empresa,
             'otro' : otro,
@@ -215,7 +267,8 @@ def pasado(request):
             'GAV_VS1' : GAV_VS1,  
             'GAV_VS2' : GAV_VS2,  
             'GAV_IPP' : GAV_IPP,  
-            'GIF_D' : GIF_D,  
+            'GIF_D' : GIF_D,
+            'GIF_DM' : GIF_DM,  
             'GIF_Seg' : GIF_Seg,  
             'GIF_MS1' : GIF_MS1,  
             'GIF_MS2' : GIF_MS2,  
@@ -311,7 +364,44 @@ def pasado(request):
             'B61' : B61,
             'C61' : C61,
             'D61' : D61,
-            'YearNow' : YearNow
+            'YearNow' : YearNow,
+            'GAV_DM' : GAV_DM,
+            'GIF_SegM' : GIF_SegM,
+            'GIF_MTotal' : GIF_MTotal,
+            'GIF_ETotal' : GIF_ETotal,
+            'GIF_VAM' : GIF_VAM,
+            'TotalGIF1' : TotalGIF1,
+            'TotalGIF2' : TotalGIF2,
+            'TotalGIF' : TotalGIF,
+            'GAV_DM' : GAV_DM,
+            'GAV_SYSM' : GAV_SYSM,
+            'GAV_Com1' : GAV_Com1,
+            'GAV_Com2' : GAV_Com2,
+            'GAV_ComTotal' : GAV_ComTotal,
+            'GAV_VTotal' : GAV_VTotal,
+            'GAV_IPPM' : GAV_IPPM,
+            'GOTotal1' : GOTotal1,
+            'GOTotal2' : GOTotal2,
+            'GOTotal' : GOTotal,
+            'DCUAA' : DCUAA,
+            'DCUAB' : DCUAB,
+            'DCUAC' : DCUAC,
+            'DCUAMO' : DCUAMO,
+            'DCUBA' : DCUBA,
+            'DCUBB' : DCUBB,
+            'DCUBC' : DCUBC,
+            'DCUBMO' : DCUBMO,
+            'DCUCA' : DCUCA,
+            'DCUCB' : DCUCB,
+            'DCUCC' : DCUCC,
+            'DCUCMO' : DCUCMO,
+            'IFMMA' : IFMMA,
+            'IFMMB' : IFMMB,
+            'IFMMC' : IFMMC,
+            'IFM' : IFM,
+            'TotalEntry' : TotalEntry,
+            'EfectivoDisponible' : EfectivoDisponible,
+            'TotalProveedoresNow' : TotalProveedoresNow
         })
 
 def resultado(request):

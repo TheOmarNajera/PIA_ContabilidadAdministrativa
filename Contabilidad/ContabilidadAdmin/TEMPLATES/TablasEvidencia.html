@@ -466,20 +466,20 @@
                                 <td>Total de Material B requerido</td>
                                 <td><script>                                
                                     var uno = parseFloat(document.getElementById("b46").innerHTML);
-                                    var dos = parseFloat(document.getElementById("RMMPAPA1").innerHTML);
+                                    var dos = parseFloat(document.getElementById("RMMPBPA1").innerHTML);
                                     document.write(uno*dos);
                                     var tmbr1 = uno*dos
                                     </script></td>
                                     
                                 <td><script>                             
                                     var uno = parseFloat(document.getElementById("c46").innerHTML);
-                                    var dos = parseFloat(document.getElementById("RMMPAPA2").innerHTML);
+                                    var dos = parseFloat(document.getElementById("RMMPBPA2").innerHTML);
                                     document.write(uno*dos);
                                     var tmb2r1 = uno*dos
                                     </script></td>
                                 <td><script>
                                     var uno = parseFloat(document.getElementById("otro").innerHTML);
-                                    var dos = parseFloat(document.getElementById("RMMPAPA3").innerHTML);
+                                    var dos = parseFloat(document.getElementById("RMMPBPA3").innerHTML);
                                     document.write(uno*dos);
                                     var tmb3r1 = uno*dos
                                 </script></td>
@@ -716,22 +716,22 @@
                             <tr>
                                 <td>Total de Material B requerido</td>
                                 <td><script>
-                                    var uno = parseFloat(document.getElementById("b61").innerHTML);
-                                    var dos = parseFloat(document.getElementById("rm_mpb_pc1").innerHTML);
-                                    document.write(uno*dos);
-                                    var tmbr3 = uno*dos
+                                    var b61 = parseFloat(document.getElementById("b61").innerHTML);
+                                    var tmbrm1 = parseFloat(document.getElementById("rm_mpb_pc1").innerHTML);
+                                    var tmbr3 = b61 * tmbrm1
+                                    document.write(tmbr3);
                                     </script></td>
                                 <td><script>
                                     var uno = parseFloat(document.getElementById("c61").innerHTML);
-                                    var dos = parseFloat(document.getElementById("rm_mpb_pc2").innerHTML);
-                                    document.write(uno*dos);
-                                    var tmb2r3 = uno*dos
+                                    var tmbrm2 = parseFloat(document.getElementById("rm_mpb_pc2").innerHTML);
+                                    document.write(uno*tmbrm2);
+                                    var tmb2r3 = uno*tmbrm2
                                     </script></td>
                                 <td><script>
                                     var uno = parseFloat(document.getElementById("d61").innerHTML);
-                                    var dos = parseFloat(document.getElementById("rm_mpb_pc3").innerHTML);
-                                    document.write(uno*dos);
-                                    var tmb3r3 = uno*dos
+                                    var tmbrm3 = parseFloat(document.getElementById("rm_mpb_pc3").innerHTML);
+                                    document.write(uno*tmbrm3);
+                                    var tmb3r3 = uno*tmbrm3
                                 </script></td>
                             </tr>
                             <tr>
@@ -812,8 +812,11 @@
                             <tr>
                                 <td>Material C</td>
                                 <td><script>document.write(tmcr1 + tmcr2 + tmcr3);</script></td>
+                                <script>var c1 = tmcr1 + tmcr2 + tmcr3;</script>
                                 <td><script>document.write(tmc2r1 + tmc2r2 + tmc2r3);</script></td>
+                                <script>var c2 = tmc2r1 + tmc2r2 + tmc2r3;</script>
                                 <td><script>document.write(tmc3r1 + tmc3r2 + tmc3r3);</script></td>
+                                <script>var c3 = tmc3r1 + tmc3r2 + tmc3r3;</script>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -878,34 +881,39 @@
                             <tr>
                                 <td>Inventario Inicial</td>
                                 <td id = "MPA_S1">{{MPA_S1}}</td>
+                                <script>var mpas1 = parseFloat(document.getElementById("MPA_S1").innerHTML);</script>
                                 <td>{{MPA_S1}}</td>
                                 <td>{{MPA_S1}}</td>
                             </tr>
                             <tr>
                                 <td>Material a comprar</td>
-                                <td><script id = test001>var uno = parseFloat(document.getElementById("MPA_S1").innerHTML);
-                                document.write(mc1-uno)</script></td>
+                                <script>var mamac = mc1-mpas1;</script>
+                                <td><script>document.write(mamac)</script></td>
                                 <td><script>
-                                    var i = parseFloat(document.getElementById("MPA_S1").innerHTML);
-                                    document.write(mc2-i)
+                                var mac1 = (mc2-mpas1)
+                                document.write(mac1)
                                 </script></td>
                                 <td><script>
-                                    var i2 = parseFloat(document.getElementById("MPA_S1").innerHTML);
-                                    var ie = mc3-i2
-                                    document.write(ie)
+                                var mac2 = mc3-mpas1
+                                document.write(mac2)
                                 </script></td>
-                            </tr>
+                        </tr>
                             <tr>
                                 <td>Precio de Compra</td>
-                                <td>{{MPA_CS1}}</td>
-                                <td>{{MPA_CS2}}</td>
+                                <td id = "mpa_cs1">{{MPA_CS1}}</td>
+                                <script>var mpacs1 = parseFloat(document.getElementById("mpa_cs1").innerHTML);</script>
+                                <td id = "mpa_cs2">{{MPA_CS2}}</td>
+                                <script>var mpacs2 = parseFloat(document.getElementById("mpa_cs2").innerHTML);</script>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>Total de Material A en $:</td>
-                                <td><script>document.write("variable")</script></td>
-                                <td><script>document.write("variable")</script></td>
-                                <td><script>document.write("variable")</script></td>
+                                <script>tmae1 = mamac * mpacs1</script>
+                                <td><script>document.write(tmae1)</script></td>
+                                <script>tmae2 = mac1 * mpacs2</script>
+                                <td><script>document.write(tmae2)</script></td>
+                                <script>sumatm = tmae1 + tmae2</script>
+                                <td><script>document.write(sumatm)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -921,45 +929,60 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de materiales</td>
-                                <td> 21,100 </td>
-                                <td> 17,230 </td>
-                                <td> 38,330 </td>
+                                <td><script>document.write(b1)</script></td>
+                                <td><script>document.write(b2)</script></td>
+                                <td><script>document.write(b3)</script></td>
                             </tr>
                             <tr>
                                 <td>Inventario Final</td>
-                                <td>{{MPB_S1}}</td>
-                                <td>{{MPB_S2}}</td>
+                                <td id = mpbs1>{{MPB_S1}}</td>
+                                <script>var mpacs1 = parseFloat(document.getElementById("mpbs1").innerHTML);</script>
+                                <td id = mpbs22>{{MPB_S2}}</td>
+                                <script>var mpacs2 = parseFloat(document.getElementById("mpbs22").innerHTML);</script>
                                 <td>{{MPB_S2}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Materiales</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <script>var b1mpacs1 = b1+mpacs1;</script>
+                                <td><script>document.write(b1mpacs1)</script></td>
+                                <script>var b2mpacs2 = b2+mpacs2;</script>
+                                <td><script>document.write(b2mpacs2)</script></td>
+                                <script>var b3mpacs2 = b3+mpacs2;</script>
+                                <td><script>document.write(b3mpacs2)</script></td>
                             </tr>
                             <tr>
                                 <td>Inventario Inicial</td>
+                                <td id = "mpbs1">{{MPB_S1}}</td>
+                                <script>var mpbs1ii = parseFloat(document.getElementById("mpbs1").innerHTML);</script>
                                 <td>{{MPB_S1}}</td>
                                 <td>{{MPB_S1}}</td>
-                                <td>{{MPB_S1}}</td>
+
                             </tr>
                             <tr>
                                 <td>Material a comprar</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <script>var mcb1 = b1mpacs1-mpbs1ii;</script>
+                                <td><script>document.write(mcb1)</script></td>
+                                <script>var mcb2 = b2mpacs2-mpbs1ii;</script>
+                                <td><script>document.write(mcb2)</script></td>
+                                <script>var mcb3 = b3mpacs2-mpbs1ii;</script>
+                                <td><script>document.write(mcb3);</script></td>
                             </tr>
                             <tr>
                                 <td>Precio de Compra</td>
-                                <td>{{MPB_CS1}}</td>
-                                <td>{{MPB_CS2}}</td>
+                                <td id = "mpbcs1">{{MPB_CS1}}</td>
+                                <script>var mpbcs1 = parseFloat(document.getElementById("mpbcs1").innerHTML);</script>
+                                <td id = "mpbcs2">{{MPB_CS2}}</td>
+                                <script>var mpbcs2 = parseFloat(document.getElementById("mpbcs2").innerHTML);</script>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>Total de Material B en $:</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <script>var mcpc = mcb1 * mpbcs1;</script>
+                                <td><script>document.write(mcpc)</script></td>
+                                <script>var mcpc2 = mcb2 * mpbcs2;</script>
+                                <td><script>document.write(mcpc2)</script></td>
+                                <script>var mcpc3 = mcpc + mcpc2;</script>
+                                <td><script>document.write(mcpc3)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -976,45 +999,61 @@
                             </tr>
                             <tr>
                                 <td>Requerimiento de materiales</td>
-                                <td> 492,500 </td>
-                                <td> 372,500 </td>
-                                <td> 865,000 </td>
+                                <td id><script>document.write(c1);</script></td>
+                                <td id><script>document.write(c2);</script></td>
+                                <td id><script>document.write(c3);</script></td> 
                             </tr>
                             <tr>
                                 <td>Inventario Final</td>
-                                <td>{{MPC_S1}}</td>
-                                <td>{{MPC_S2}}</td>
-                                <td>{{MPC_S2}}</td>
+                                <td id = "mpcs1">{{MPC_S1}}</td>
+                                <script>var mpcs1 = parseFloat(document.getElementById("mpcs1").innerHTML);</script>
+                                <td id = "mpcs2">{{MPC_S2}}</td>
+                                <script>var mpcs2 = parseFloat(document.getElementById("mpcs2").innerHTML);</script>
+                                <td id = "mpcs3">{{MPC_S2}}</td>
+                                <script>var mpcs3 = parseFloat(document.getElementById("mpcs3").innerHTML);</script>
                             </tr>
                             <tr>
                                 <td>Total de Materiales</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <script>var tmc = c1 + mpcs1;</script>
+                                <td><script>document.write(tmc)</script></td>
+                                <script>var tmc2 = c2 + mpcs2;</script>
+                                <td><script>document.write(tmc2)</script></td>
+                                <script>var tmc3 = c3 + mpcs3;</script>
+                                <td><script>document.write(tmc3)</script></td>
                             </tr>
                             <tr>
                                 <td>Inventario Inicial</td>
-                                <td>{{MPC_S1}}</td>
+                                <td id = "mpcs1">{{MPC_S1}}</td>
+                                <script>var mpcs1 = parseFloat(document.getElementById("mpcs1").innerHTML);</script>
                                 <td>{{MPC_S1}}</td>
                                 <td>{{MPC_S1}}</td>
                             </tr>
                             <tr>
-                                <td>Material a comprar</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <td>Material a comprar</td>        
+                                <script>var mcc = tmc - mpcs1;</script>
+                                <td><script>document.write(mcc)</script></td>
+                                <script>var mcc2 = tmc2 - mpcs1;</script>
+                                <td><script>document.write(mcc2)</script></td>
+                                <script>var mcc3 = tmc3 - mpcs1;</script>
+                                <td><script>document.write(mcc3)</script></td>
                             </tr>
                             <tr>
                                 <td>Precio de Compra</td>
-                                <td>{{MPC_CS1}}</td>
-                                <td>{{MPC_CS2}}</td>
+                                <td id = "mpccs1">{{MPC_CS1}}</td>
+                                <script>var mpccs1 = parseFloat(document.getElementById("mpccs1").innerHTML);</script>
+                                <td id = "mpccs2">{{MPC_CS2}}</td>
+                                <script>var mpccs2 = parseFloat(document.getElementById("mpccs2").innerHTML);</script>
+                                <script></script>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>Total de Material C en $:</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <script>var tmced1 = mcc * mpccs1;</script>
+                                <td><script>document.write(tmced1)</script></td>
+                                <script>var tmced2 = mcc2 * mpccs2;</script>
+                                <td><script>document.write(tmced2)</script></td>
+                                <script>var tmceds = tmced1+tmced2;</script>
+                                <td><script>document.write(tmceds)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1024,9 +1063,12 @@
                             </tr>
                             <tr>
                                 <td>Compras totales:</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <script>var ct51 = tmae1 + mcpc + tmced1;</script>
+                                <td><script>document.write(ct51)</script></td>
+                                <script>var ct52 = tmae2 + mcpc2 + tmced2;</script>
+                                <td><script>document.write(ct52)</script></td>
+                                <script>var ct53 = ct51 + ct52;</script>
+                                <td><script>document.write(ct53)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1059,19 +1101,21 @@
                             <tr>
                                 <td>Saldo de Proveedores 31-Dic-{{Year}}</td>
                                 <td>&nbsp;</td>
-                                <td>{{Clientes}}</td>
+                                <td id = "t6clientes">{{Proveedores}}</td>
+                                <script>var jsxt6clientes = parseFloat(document.getElementById("t6clientes").innerHTML);</script>
                                 <td> (R. Balance {{Year}}) </td>
                             </tr>
                             <tr>
                                 <td>Compras {{YearNow}}</td>
                                 <td>&nbsp;</td>
-                                <td> 2,141,010 </td>
+                                <td><script>document.write(ct53)</script></td>
                                 <td> (5. Presupuesto de Compras) </td>
                             </tr>
                             <tr>
                                 <td>Total de Proveedores {{YearNow}}</td>
                                 <td>&nbsp;</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <script>var tpsum = jsxt6clientes + ct53;</script>
+                                <td><script>document.write(tpsum)</script></td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
@@ -1089,20 +1133,27 @@
                             </tr>
                             <tr>
                                 <td>Por Proveedores del {{Year}}</td>
-                                <td> 33,500 </td>
-                                <td>(R. {{SC_AAn}}%)</td>
+                                <td id = "tpn">{{TotalProveedoresNow}}</td>
+                                <script>var tpn = parseFloat(document.getElementById("tpn").innerHTML);</script>
+                                <td>(R. {{SP_AAn}}%)</td> <!--100%-->
                                 <td>&nbsp;</td>
                             </tr>
+                            <div style="color: #8B54C7" id = "divdentre100">{{CP_AAc}}</div>
+                            <script>var porcentajesolo = parseFloat(document.getElementById("divdentre100").innerHTML);</script>
+                            <script>var porcentajex100 = porcentajesolo / 100;</script>
                             <tr>
                                 <td>Por Proveedores del {{YearNow}}</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
-                                <td>(R. {{CP_AAc}}%)</td>
+                                <script>clientesuma = ct53 * porcentajex100</script>
+                                <td><script>document.write(clientesuma);</script></td>
+                                <td>(R.<strong id = "divdentre100">{{CP_AAc}}</strong>%)</td><!--100%-->
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>Total de Salidas {{YearNow}}:</td>
+                                <td id>Total de Salidas {{YearNow}}:</td>
                                 <td>&nbsp;</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <script>var totalsalidasp = clientesuma+tpn;
+                                </script>
+                                <td> <script>document.write(totalsalidasp)</script></td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
@@ -1114,7 +1165,8 @@
                             <tr>
                                 <td>Saldo de Proveedores del {{YearNow}}</td>
                                 <td>&nbsp;</td>
-                                <td><script src="../static/js/tablas.js">document.write("variable")</script></td>
+                                <script>var SaldoDeProveedoresNow = tpsum - totalsalidasp; </script>
+                                <td><script>document.write(SaldoDeProveedoresNow);</script></td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
@@ -1147,33 +1199,49 @@
                             </tr>
                             <tr>
                                 <td>Unidades a producir</td>
-                                <td> 12,000 </td>
-                                <td> 6,500 </td>
-                                <td> 18,500 </td>
+                                <td id="B46" >{{B46}}</td>
+                                <td id="C46">{{C46}}</td>
+                                <td id="otro">{{otro}}</td>
                             </tr>
                             <tr>
                                 <td>Horas requeridas por unidad</td>
-                                <td>{{RM_MO_PA}}</td>
+                                <td id="RM_MO_PA">{{RM_MO_PA}}</td>
                                 <td>{{RM_MO_PA}}</td>
                                 <td>{{RM_MO_PA}}</td>
                             </tr>
                             <tr>
                                 <td>Total de horas requeridas</td>
-                                <td> 24,000 </td>
-                                <td> 13,000 </td>
-                                <td> 37,000 </td>
+                                <script>
+                                    var B46 = parseFloat(document.getElementById("B46").innerHTML);
+                                    var C46 = parseFloat(document.getElementById("C46").innerHTML);
+                                    var otro = parseFloat(document.getElementById("otro").innerHTML);
+                                    var RM_MO_PA = parseFloat(document.getElementById("RM_MO_PA").innerHTML);
+                                    var THRA1 = B46 * RM_MO_PA;
+                                    var THRA2 = C46 * RM_MO_PA;
+                                    var THRA3 = otro * RM_MO_PA;
+                                </script>
+                                <td><script>document.write(THRA1);</script></td>
+                                <td><script>document.write(THRA2);</script></td>
+                                <td><script>document.write(THRA3);</script></td>
                             </tr>
                             <tr>
                                 <td>Cuota por hora</td>
-                                <td>{{MOD_S1}}</td>
-                                <td>{{MOD_S2}}</td>
+                                <td id="aMOD_S1">{{MOD_S1}}</td>
+                                <td id="aMOD_S2">{{MOD_S2}}</td>
                                 <td>&nbsp;</td>
                             </tr>
+                            <script>
+                                var aMOD_S1 = parseFloat(document.getElementById("aMOD_S1").innerHTML);
+                                var aMOD_S2 = parseFloat(document.getElementById("aMOD_S2").innerHTML);
+                                var ImporteMODA1 = THRA1 * aMOD_S1;
+                                var ImporteMODA2 = THRA2 * aMOD_S2;
+                                var ImporteMODAT = ImporteMODA1 + ImporteMODA2;
+                            </script>
                             <tr>
                                 <td>Importe de M.O.D.</td>
-                                <td> $360,000 </td>
-                                <td> $234,000 </td>
-                                <td> $594,000 </td>
+                                <td><script>document.write(ImporteMODA1);</script></td>
+                                <td><script>document.write(ImporteMODA2);</script></td>
+                                <td><script>document.write(ImporteMODAT);</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1183,27 +1251,37 @@
                             </tr>
                             <tr>
                                 <td class="juan" colspan="1">PRODUCTO B</td>
-
+                                <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
+
                                 <td>Unidades a producir</td>
-                                <td> 13,500 </td>
-                                <td> 10,800 </td>
-                                <td> 24,300 </td>
+                                <td id = "b54">{{B54}}</td>
+                                <script>b54 = parseFloat(document.getElementById("b54").innerHTML);</script>
+                                <td id = "c54">{{C54}}</td>
+                                <script>c54 = parseFloat(document.getElementById("c54").innerHTML);</script>
+                                <td id = "d54">{{D54}}</td>
+                                <script>d54 = parseFloat(document.getElementById("d54").innerHTML);</script>
                             </tr>
                             <tr>
                                 <td>Horas requeridas por unidad</td>
-                                <td>{{RM_MO_PB}}</td>
-                                <td>{{RM_MO_PB}}</td>
-                                <td>{{RM_MO_PB}}</td>
+                                <td id = "RM_MO_PB">{{RM_MO_PB}}</td>
+                                <script>RM_MO_PB = parseFloat(document.getElementById("RM_MO_PB").innerHTML);</script>
+                                <td id = "RM_MO_PB">{{RM_MO_PB}}</td>
+                                <script>RM_MO_PB2 = parseFloat(document.getElementById("RM_MO_PB").innerHTML);</script>
+                                <td id = "RM_MO_PB">{{RM_MO_PB}}</td>
+                                <script>RM_MO_PB3 = parseFloat(document.getElementById("RM_MO_PB").innerHTML);</script>
                             </tr>
                             <tr>
                                 <td>Total de horas requeridas</td>
-                                <td> 13,500 </td>
-                                <td> 10,800 </td>
-                                <td> 24,300 </td>
+                                <script>var mbr = b54*RM_MO_PB;</script>
+                                <td><script>document.write(mbr)</script></td>
+                                <script>var cbr = c54*RM_MO_PB2;</script>
+                                <td><script>document.write(cbr)</script></td>
+                                <script>var dbr = d54*RM_MO_PB3;</script>
+                                <td><script>document.write(dbr)</script></td>
                             </tr>
                             <tr>
                                 <td>Cuota por hora</td>
@@ -1213,9 +1291,12 @@
                             </tr>
                             <tr>
                                 <td>Importe de M.O.D.</td>
-                                <td> $202,500 </td>
-                                <td> $194,400 </td>
-                                <td> $396,900 </td>
+                                <script>var imoda1 = mbr*aMOD_S1;</script>
+                                <td><script>document.write(imoda1)</script></td>
+                                <script>var imoda2 = cbr*aMOD_S2;</script>
+                                <td><script>document.write(imoda2)</script></td>
+                                <SCRIPT>var imodasum = imoda1+imoda2;</SCRIPT>
+                                <td><script>document.write(imodasum)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1231,21 +1312,30 @@
                             </tr>
                             <tr>
                                 <td>Unidades a producir</td>
-                                <td> 7,000 </td>
-                                <td> 7,500 </td>
-                                <td> 14,500 </td>
+                                <td id = "B61">{{B61}}</td>
+                                <td id = "C61">{{C61}}</td>
+                                <td id = "D61">{{D61}}</td>
                             </tr>
                             <tr>
                                 <td>Horas requeridas por unidad</td>
-                                <td>{{RM_MO_PC}}</td>
+                                <td id = "RM_MO_PC">{{RM_MO_PC}}</td>
                                 <td>{{RM_MO_PC}}</td>
                                 <td>{{RM_MO_PC}}</td>
                             </tr>
+                            <script>
+                                var B61 = parseFloat(document.getElementById("B61").innerHTML);
+                                var C61 = parseFloat(document.getElementById("C61").innerHTML);
+                                var D61 = parseFloat(document.getElementById("D61").innerHTML);
+                                var RM_MO_PC = parseFloat(document.getElementById("RM_MO_PC").innerHTML);
+                                var THRC1 = B61 * RM_MO_PC;
+                                var THRC2 = C61 * RM_MO_PC;
+                                var THRC3 = D61 * RM_MO_PC;
+                            </script>
                             <tr>
                                 <td>Total de horas requeridas</td>
-                                <td> 10,500 </td>
-                                <td> 11,250 </td>
-                                <td> 21,750 </td>
+                                <td><script>document.write(THRC1);</script></td>
+                                <td><script>document.write(THRC2);</script></td>
+                                <td><script>document.write(THRC3);</script></td>
                             </tr>
                             <tr>
                                 <td>Cuota por hora</td>
@@ -1253,11 +1343,16 @@
                                 <td>{{MOD_S2}}</td>
                                 <td>&nbsp;</td>
                             </tr>
+                            <script>
+                                var ImporteMODC1 = THRC1 * aMOD_S1;
+                                var ImporteMODC2 = THRC2 * aMOD_S2;
+                                var ImporteMODCT = ImporteMODC1 + ImporteMODC2;
+                            </script>
                             <tr>
                                 <td>Importe de M.O.D.</td>
-                                <td> $157,500 </td>
-                                <td> $202,500 </td>
-                                <td> $360,000 </td>
+                                <td><script>document.write(ImporteMODC1);</script></td>
+                                <td><script>document.write(ImporteMODC2);</script></td>
+                                <td><script>document.write(ImporteMODCT);</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1267,9 +1362,12 @@
                             </tr>
                             <tr>
                                 <td>Total de horas requeridas por semestre</td>
-                                <td> 48,000 </td>
-                                <td> 35,050 </td>
-                                <td> 83,050 </td>
+                                <script>var sumsem1 = THRA1 + mbr + THRC1;</script>
+                                <script>var sumsem2 = THRA2 + cbr + THRC2;</script>
+                                <script>var sumsem3 = THRA3 + dbr + THRC3;</script>
+                                <td><script>document.write(sumsem1)</script></td>
+                                <td><script>document.write(sumsem2)</script></td>
+                                <td><script>document.write(sumsem3)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1278,10 +1376,15 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
+                                <script>
+                                    var totalmodxsem1 = ImporteMODA1 + ImporteMODC1 + imoda1;
+                                    var totalmodxsem2 = ImporteMODA2 + ImporteMODC2 + imoda2;
+                                    var totalmodxsem3 = totalmodxsem1 + totalmodxsem2;
+                                </script>
                                 <td>Total de M.O.D. por semestre</td>
-                                <td> $720,000 </td>
-                                <td> $630,900 </td>
-                                <td> $1,350,900 </td>
+                                <td><script>document.write(totalmodxsem1)</script></td>
+                                <td><script>document.write(totalmodxsem2)</script></td>
+                                <td><script>document.write(totalmodxsem3)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1308,39 +1411,39 @@
                             </tr>
                             <tr>
                                 <td>Depreciación</td>
-                                <td> $40,000 </td>
-                                <td> $40,000 </td>
-                                <td>{{GAV_D}}</td>
+                                <td>{{GIF_DM}}</td>
+                                <td>{{GIF_DM}}</td>
+                                <td>{{GIF_D}}</td>
                             </tr>
                             <tr>
                                 <td>Seguros</td>
-                                <td> 12,500 </td>
-                                <td> 12,500 </td>
+                                <td>{{GIF_SegM}}</td>
+                                <td>{{GIF_SegM}}</td>
                                 <td>{{GIF_Seg}}</td>
                             </tr>
                             <tr>
                                 <td>Mantenimiento</td>
                                 <td>{{GIF_MS1}}</td>
                                 <td>{{GIF_MS2}}</td>
-                                <td> 58,000 </td>
+                                <td>{{GIF_MTotal}}</td>
                             </tr>
                             <tr>
                                 <td>Energéticos</td>
                                 <td>{{GIF_ES1}}</td>
                                 <td>{{GIF_ES2}}</td>
-                                <td> 75,000 </td>
+                                <td>{{GIF_ETotal}}</td>
                             </tr>
                             <tr>
                                 <td>Varios</td>
-                                <td> 12,500 </td>
-                                <td> 12,500 </td>
+                                <td>{{GIF_VAM}}</td>
+                                <td>{{GIF_VAM}}</td>
                                 <td>{{GIF_VA}}</td>
                             </tr>
                             <tr>
                                 <td>Total G.I.F. por semestre</td>
-                                <td> $138,000 </td>
-                                <td> $125,000 </td>
-                                <td> $263,000 </td>
+                                <td>{{TotalGIF1}}</td>
+                                <td>{{TotalGIF2}}</td>
+                                <td>{{TotalGIF}}</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1358,19 +1461,23 @@
                                 <td>Total de G.I.F.</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td> $263,000 </td>
+                                <td id="TotalGIFT">{{TotalGIF}}</td>
                             </tr>
+                            <script>
+                                var TotalGIFT = parseFloat(document.getElementById("TotalGIFT").innerHTML);
+                                var CostoHoraGif = TotalGIFT/sumsem3;
+                            </script>
                             <tr>
                                 <td>(/) Total horas M.O.D. Anual</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td> 83,050 </td>
+                                <td><script>document.write(sumsem3)</script></td>
                             </tr>
                             <tr>
                                 <td>(=) Costo por Hora de G.I.F.</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td> $3.17 </td>
+                                <td> $<script>document.write(CostoHoraGif)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1397,39 +1504,39 @@
                             </tr>
                             <tr>
                                 <td>Depreciación</td>
-                                <td> $7,500 </td>
-                                <td> $7,500 </td>
+                                <td>{{GAV_DM}}</td>
+                                <td>{{GAV_DM}}</td>
                                 <td>{{GAV_D}}</td>
                             </tr>
                             <tr>
                                 <td>Sueldos y Salarios</td>
-                                <td> 125,000 </td>
-                                <td> 125,000 </td>
-                                <td> 250,000 </td>
+                                <td>{{GAV_SYSM}}</td>
+                                <td>{{GAV_SYSM}}</td>
+                                <td>{{GAV_SYS}}</td>
                             </tr>
                             <tr>
                                 <td>Comisiones</td>
-                                <td> 86,750 </td>
-                                <td> 85,580 </td>
-                                <td> 172,330 </td>
+                                <td>{{GAV_Com1}}</td>
+                                <td>{{GAV_Com2}}</td>
+                                <td>{{GAV_ComTotal}}</td>
                             </tr>
                             <tr>
                                 <td>Varios</td>
                                 <td>{{GAV_VS1}}</td>
                                 <td>{{GAV_VS2}}</td>
-                                <td> 18,000 </td>
+                                <td>{{GAV_VTotal}}</td>
                             </tr>
                             <tr>
                                 <td>Intereses por Obligaciones</td>
-                                <td> 2,500 </td>
-                                <td> 2,500 </td>
+                                <td>{{GAV_IPPM}}</td>
+                                <td>{{GAV_IPPM}}</td>
                                 <td>{{GAV_IPP}}</td>
                             </tr>
                             <tr>
                                 <td>Total de Gastos de Operación:</td>
-                                <td> $231,750 </td>
-                                <td> $228,580 </td>
-                                <td> $460,330 </td>
+                                <td>{{GOTotal1}}</td>
+                                <td>{{GOTotal2}}</td>
+                                <td>{{GOTotal}}</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1464,37 +1571,46 @@
                                 <td>Material A</td>
                                 <td>{{MPA_CS2}}</td>
                                 <td>{{RM_MPA_PA}}</td>
-                                <td> $12.00 </td>
+                                <td id="DCUAA">{{DCUAA}}</td>
                             </tr>
                             <tr>
                                 <td>Material B</td>
                                 <td>{{MPB_CS2}}</td>
                                 <td>{{RM_MPB_PA}}</td>
-                                <td> 1.50 </td>
+                                <td id="DCUAB">{{DCUAB}}</td>
                             </tr>
                             <tr>
                                 <td>Material C</td>
                                 <td>{{MPC_CS2}}</td>
                                 <td>{{RM_MPC_PA}}</td>
-                                <td> 20.00 </td>
+                                <td id="DCUAC">{{DCUAC}}</td>
                             </tr>
                             <tr>
                                 <td>Mano de Obra</td>
                                 <td>{{MOD_S2}}</td>
                                 <td>{{RM_MO_PA}}</td>
-                                <td> 36.00 </td>
+                                <td id="DCUAMO">{{DCUAMO}}</td>
                             </tr>
                             <tr>
                                 <td>Gastos Indirectos de Fabricación</td>
-                                <td> 3.17 </td>
-                                <td>{{RM_MO_PA}}</td>
-                                <td> 6.33 </td>
+                                <td><script>document.write(CostoHoraGif)</script></td>
+                                <td id="RM_MO_AP">{{RM_MO_PA}}</td>
+                                <script>
+                                    var RM_MO_AP = parseFloat(document.getElementById("RM_MO_AP").innerHTML);
+                                    var DCUAA = parseFloat(document.getElementById("DCUAA").innerHTML);
+                                    var DCUAB = parseFloat(document.getElementById("DCUAB").innerHTML);
+                                    var DCUAC = parseFloat(document.getElementById("DCUAC").innerHTML);
+                                    var DCUAMO = parseFloat(document.getElementById("DCUAMO").innerHTML);
+                                    var GIFTPA = CostoHoraGif * RM_MO_AP;
+                                    var CU_PA = GIFTPA + DCUAA + DCUAB + DCUAC + DCUAMO;
+                                </script>
+                                <td><script>document.write(GIFTPA)</script></td>
                             </tr>
                             <tr>
                                 <td>Costo Unitario</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td> $75.83 </td>
+                                <td><script>document.write(CU_PA)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1517,37 +1633,46 @@
                                 <td>Material A</td>
                                 <td>{{MPA_CS2}}</td>
                                 <td>{{RM_MPA_PB}}</td>
-                                <td> $14.40 </td>
+                                <td id="DCUBA">{{DCUBA}}</td>
                             </tr>
                             <tr>
                                 <td>Material B</td>
                                 <td>{{MPB_CS2}}</td>
                                 <td>{{RM_MPB_PB}}</td>
-                                <td> 1.80 </td>
+                                <td id="DCUBB">{{DCUBB}}</td>
                             </tr>
                             <tr>
                                 <td>Material C</td>
                                 <td>{{MPC_CS2}}</td>
                                 <td>{{RM_MPC_PB}}</td>
-                                <td> 50.00 </td>
+                                <td id="DCUBC">{{DCUBC}}</td>
                             </tr>
                             <tr>
                                 <td>Mano de Obra</td>
                                 <td>{{MOD_S2}}</td>
                                 <td>{{RM_MO_PB}}</td>
-                                <td> 18.00 </td>
+                                <td id="DCUBMO">{{DCUBMO}}</td>
                             </tr>
                             <tr>
                                 <td>Gastos Indirectos de Fabricación</td>
-                                <td> 3.17 </td>
-                                <td>{{RM_MO_PB}}</td>
-                                <td> 3.17 </td>
+                                <td><script>document.write(CostoHoraGif)</script></td>
+                                <td id="RM_MO_BP">{{RM_MO_PB}}</td>
+                                <script>
+                                    var RM_MO_BP = parseFloat(document.getElementById("RM_MO_BP").innerHTML);
+                                    var DCUBA = parseFloat(document.getElementById("DCUBA").innerHTML);
+                                    var DCUBB = parseFloat(document.getElementById("DCUBB").innerHTML);
+                                    var DCUBC = parseFloat(document.getElementById("DCUBC").innerHTML);
+                                    var DCUBMO = parseFloat(document.getElementById("DCUBMO").innerHTML);
+                                    var GIFTPB = CostoHoraGif * RM_MO_BP;
+                                    var CU_PB = GIFTPB + DCUBA + DCUBB + DCUBC + DCUBMO;
+                                </script>
+                                <td><script>document.write(GIFTPB)</script></td>
                             </tr>
                             <tr>
                                 <td>Costo Unitario</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td> $87.37 </td>
+                                <td><script>document.write(CU_PB)</script></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1570,37 +1695,46 @@
                                 <td>Material A</td>
                                 <td>{{MPA_CS2}}</td>
                                 <td>{{RM_MPA_PC}}</td>
-                                <td> $24.00 </td>
+                                <td id="DCUCA">{{DCUCA}}</td>
                             </tr>
                             <tr>
                                 <td>Material B</td>
                                 <td>{{MPB_CS2}}</td>
                                 <td>{{RM_MPB_PC}}</td>
-                                <td> 3.00 </td>
+                                <td id="DCUCB">{{DCUCB}}</td>
                             </tr>
                             <tr>
                                 <td>Material C</td>
                                 <td>{{MPC_CS2}}</td>
                                 <td>{{RM_MPC_PC}}</td>
-                                <td> 10.00 </td>
+                                <td id="DCUCC">{{DCUCC}}</td>
                             </tr>
                             <tr>
                                 <td>Mano de Obra</td>
                                 <td>{{MOD_S2}}</td>
                                 <td>{{RM_MO_PC}}</td>
-                                <td> 27.00 </td>
+                                <td id="DCUCMO">{{DCUCMO}}</td>
                             </tr>
                             <tr>
                                 <td>Gastos Indirectos de Fabricación</td>
-                                <td> 3.17 </td>
-                                <td>{{RM_MO_PC}}</td>
-                                <td> 4.75 </td>
+                                <td><script>document.write(CostoHoraGif)</script></td>
+                                <td id="RM_MO_CP">{{RM_MO_PC}}</td>
+                                <script>
+                                    var RM_MO_CP = parseFloat(document.getElementById("RM_MO_CP").innerHTML);
+                                    var DCUCA = parseFloat(document.getElementById("DCUCA").innerHTML);
+                                    var DCUCB = parseFloat(document.getElementById("DCUCB").innerHTML);
+                                    var DCUCC = parseFloat(document.getElementById("DCUCC").innerHTML);
+                                    var DCUCMO = parseFloat(document.getElementById("DCUCMO").innerHTML);
+                                    var GIFTPC = CostoHoraGif * RM_MO_CP;
+                                    var CU_PC = GIFTPC + DCUCA + DCUCB + DCUCC + DCUCMO;
+                                </script>
+                                <td><script>document.write(GIFTPC)</script></td>
                             </tr>
                             <tr>
                                 <td>Costo Unitario</td>
                                 <td></td>
                                 <td></td>
-                                <td> $68.75 </td>
+                                <td><script>document.write(CU_PC)</script></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -1633,25 +1767,25 @@
                                 <td>Material A</td>
                                 <td>{{MPA_S2}}</td>
                                 <td>{{MPA_CS2}}</td>
-                                <td> $36,000 </td>
+                                <td>{{IFMMA}}</td>
                             </tr>
                             <tr>
                                 <td>Material B</td>
                                 <td>{{MPB_S2}}</td>
                                 <td>{{MPB_CS2}}</td>
-                                <td> 7,500 </td>
+                                <td>{{IFMMB}}</td>
                             </tr>
                             <tr>
                                 <td>Material C</td>
                                 <td>{{MPC_S2}}</td>
                                 <td>{{MPC_CS2}}</td>
-                                <td> 3,600 </td>
+                                <td>{{IFMMC}}</td>
                             </tr>
                             <tr>
                                 <td>Inventario Final de Materiales</td>
                                 <td></td>
                                 <td></td>
-                                <td> $47,100 </td>
+                                <td>{{IFM}}</td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -1673,27 +1807,40 @@
                             </tr>
                             <tr>
                                 <td>Producto A</td>
-                                <td>{{PA_S2}}</td>
-                                <td> $75.83 </td>
-                                <td> $492,918 </td>
+                                <td id="PA_S2">{{PA_S2}}</td>
+                                <td><script>document.write(CU_PA)</script></td>
+                                <script>
+                                    var PA_S2 = parseFloat(document.getElementById("PA_S2").innerHTML);
+                                    var IFPTPA = PA_S2 * CU_PA;
+                                </script>
+                                <td><script>document.write(IFPTPA)</script></td>
                             </tr>
                             <tr>
                                 <td>Producto B</td>
-                                <td>{{PB_S2}}</td>
-                                <td> 87.37 </td>
-                                <td> 655,251 </td>
+                                <td id="PB_S2">{{PB_S2}}</td>
+                                <td><script>document.write(CU_PB)</script></td>
+                                <script>
+                                    var PB_S2 = parseFloat(document.getElementById("PB_S2").innerHTML);
+                                    var IFPTPB = PB_S2 * CU_PB;
+                                </script>
+                                <td><script>document.write(IFPTPB)</script></td>
                             </tr>
                             <tr>
                                 <td>Producto C</td>
-                                <td>{{PC_S2}}</td>
-                                <td> 68.75 </td>
-                                <td> 343,751 </td>
+                                <td id="PC_S2">{{PC_S2}}</td>
+                                <td><script>document.write(CU_PC)</script></td>
+                                <script>
+                                    var PC_S2 = parseFloat(document.getElementById("PC_S2").innerHTML);
+                                    var IFPTPC = PC_S2 * CU_PC;
+                                    var IF_PT_Total = IFPTPA + IFPTPB + IFPTPC;
+                                </script>
+                                <td><script>document.write(IFPTPC)</script></td>
                             </tr>
                             <tr>
                                 <td>Inventario Final de Producto Terminado</td>
                                 <td></td>
                                 <td></td>
-                                <td> $1,491,919 </td>
+                                <td><script>document.write(IF_PT_Total)</script></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -1755,7 +1902,7 @@
                                 <td>(-) Inventario Final de Materiales</td>
                                 <td></td>
                                 <td></td>
-                                <td> 47,100 </td>
+                                <td>{{IFM}}</td>
                             </tr>
                             <tr>
                                 <td>(=) Materiales Utilizados</td>
@@ -1773,7 +1920,7 @@
                                 <td>(+) Gastos de Fabricación Indirectos</td>
                                 <td></td>
                                 <td></td>
-                                <td> 263,000 </td>
+                                <td>{{Total_GIF}}</td>
                             </tr>
                             <tr>
                                 <td>(=) Costo de Producción</td>
@@ -1831,7 +1978,7 @@
                                 <td>Ventas</td>
                                 <td></td>
                                 <td></td>
-                                <td> $17,233,000 </td>
+                                <td>{{Total_PV}}</td>
                             </tr>
                             <tr>
                                 <td>(-) Costo de Ventas</td>
@@ -1849,7 +1996,7 @@
                                 <td>(-) Gastos de Operación</td>
                                 <td></td>
                                 <td></td>
-                                <td> 460,330 </td>
+                                <td>{{GOTotal}}</td>
                             </tr>
                             <tr>
                                 <td>(=) Utilidad de Operación</td>
@@ -1912,26 +2059,26 @@
                             <tr>
                                 <td>Cobranza 2016</td>
                                 <td></td>
-                                <td> $13,786,400 </td>
+                                <td>{{VP_AAc}</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Cobranza 2015</td>
                                 <td></td>
-                                <td> 80,000 </td>
+                                <td>{{SC_AAn}}</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Total de Entradas</td>
                                 <td></td>
                                 <td></td>
-                                <td> 13,866,400 </td>
+                                <td>{{TotalEntry}}</td>
                             </tr>
                             <tr>
                                 <td>Efectivo Disponible</td>
                                 <td></td>
                                 <td></td>
-                                <td> 13,966,400 </td>
+                                <td>{{EfectivoDisponible}}</td>
                             </tr>
                             <tr>
                                 <td>Salidas:</td>
@@ -1948,7 +2095,7 @@
                             <tr>
                                 <td>Proveedores 2015</td>
                                 <td></td>
-                                <td> 33,500 </td>
+                                <td>{{TotalProveedoresNow}</td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -2038,7 +2185,7 @@
                             <tr>
                                 <td>Clientes</td>
                                 <td></td>
-                                <td> 3,446,600 </td>
+                                <td>{{Saldo_Clientes2001}}</td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -2056,7 +2203,7 @@
                             <tr>
                                 <td>Inventario de Materiales</td>
                                 <td></td>
-                                <td> 47,100 </td>
+                                <td>{{IFM}}</td>
                                 <td></td>
                             </tr>
                             <tr>
