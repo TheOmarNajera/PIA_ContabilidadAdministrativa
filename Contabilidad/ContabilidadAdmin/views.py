@@ -227,6 +227,7 @@ def pasado(request):
             # Estado de Flujo de Efectivo
             TotalEntry = VP_AAc + SC_AAn
             EfectivoDisponible = TotalEntry + Efectivo
+            PyETotal = PyE + Eq_Nv
 
         return render(request,'TablasEvidencia.html',{
             'Empresa' : Empresa,
@@ -401,7 +402,8 @@ def pasado(request):
             'IFM' : IFM,
             'TotalEntry' : TotalEntry,
             'EfectivoDisponible' : EfectivoDisponible,
-            'TotalProveedoresNow' : TotalProveedoresNow
+            'TotalProveedoresNow' : TotalProveedoresNow,
+            'PyETotal' : PyETotal
         })
 
 def resultado(request):

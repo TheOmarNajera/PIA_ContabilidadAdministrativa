@@ -204,13 +204,17 @@
                             </tr>
                             <tr>
                                 <td>Por Cobranza del {{Year}}</td>
-                                <td>{{Por_Cobranza2000}}</td>
+                                <td id="Por_Cobranza2000">{{Por_Cobranza2000}}</td>
                                 <td>(R. {{SC_AAn}}%)</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>Por Cobranza del {{YearNow}}</td>
-                                <td>{{Por_Cobranza2001}}</td>
+                                <td id="Por_Cobranza2001">{{Por_Cobranza2001}}</td>
+                                <script>
+                                    var Por_Cobranza2000 = parseFloat(document.getElementById("Por_Cobranza2000").innerHTML);
+                                    var Por_Cobranza2001 = parseFloat(document.getElementById("Por_Cobranza2001").innerHTML);
+                                </script>
                                 <td>(R. {{VP_AAc}}%)</td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -1413,7 +1417,7 @@
                                 <td>Depreciación</td>
                                 <td>{{GIF_DM}}</td>
                                 <td>{{GIF_DM}}</td>
-                                <td>{{GIF_D}}</td>
+                                <td id = GIF_D>{{GIF_D}}</td>
                             </tr>
                             <tr>
                                 <td>Seguros</td>
@@ -1506,7 +1510,7 @@
                                 <td>Depreciación</td>
                                 <td>{{GAV_DM}}</td>
                                 <td>{{GAV_DM}}</td>
-                                <td>{{GAV_D}}</td>
+                                <td id = "GAV_D">{{GAV_D}}</td>
                             </tr>
                             <tr>
                                 <td>Sueldos y Salarios</td>
@@ -1536,7 +1540,7 @@
                                 <td>Total de Gastos de Operación:</td>
                                 <td>{{GOTotal1}}</td>
                                 <td>{{GOTotal2}}</td>
-                                <td>{{GOTotal}}</td>
+                                <td id = "GOTOTAL">{{GOTotal}}</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -1884,73 +1888,83 @@
                                 <td>Saldo Inicial de Materiales</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{InvMat}}</td>
+                                <td id = "InvMat">{{InvMat}}</td>
                             </tr>
                             <tr>
                                 <td>(+) Compras de Materiales</td>
                                 <td></td>
                                 <td></td>
-                                <td> 2,141,010 </td>
+                                <td><script>document.write(ct53)</script></td>
                             </tr>
                             <tr>
                                 <td>(=) Material Disponible</td>
+                                <script>var InventarioMateriales = parseFloat(document.getElementById("InvMat").innerHTML);</script>
+                                <script>var MaterialDisponible = ct53+InventarioMateriales;</script>
                                 <td></td>
                                 <td></td>
-                                <td> 2,186,010 </td>
+                                <td><script>document.write(MaterialDisponible)</script></td>
                             </tr>
                             <tr>
-                                <td>(-) Inventario Final de Materiales</td>
+                                <td >(-) Inventario Final de Materiales</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{IFM}}</td>
+                                <td id = "InventarioFinalMateriales">{{IFM}}</td>
                             </tr>
                             <tr>
+                                <script>var InventarioFinalMateriales = parseFloat(document.getElementById("InventarioFinalMateriales").innerHTML);</script>
+                                <script>var materialesUtilizados = MaterialDisponible - InventarioFinalMateriales;</script>
                                 <td>(=) Materiales Utilizados</td>
                                 <td></td>
                                 <td></td>
-                                <td> 2,138,910 </td>
+                                <td><script>document.write(materialesUtilizados)</script></td>
                             </tr>
                             <tr>
                                 <td>(+) Mano de Obra Directa</td>
                                 <td></td>
                                 <td></td>
-                                <td> 1,350,900 </td>
+                                <td><script>document.write(totalmodxsem3)</script></td>
                             </tr>
                             <tr>
                                 <td>(+) Gastos de Fabricación Indirectos</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{Total_GIF}}</td>
+                            <td><script>document.write(TotalGIFT)</script>
                             </tr>
                             <tr>
+                                <script>var sumaCostoProduccion = materialesUtilizados + totalmodxsem3 + TotalGIFT;</script>
                                 <td>(=) Costo de Producción</td>
                                 <td></td>
                                 <td></td>
-                                <td> 3,752,810 </td>
+                                <td><script>document.write(sumaCostoProduccion)</script></td>
                             </tr>
                             <tr>
                                 <td>(+) Inventario Inicial de Productos Terminados</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{InvPT}}</td>
+                                <td id="InvPT">{{InvPT}}</td>
                             </tr>
                             <tr>
                                 <td>(=) Total de Producción Disponible</td>
                                 <td></td>
                                 <td></td>
-                                <td> 3,887,810 </td>
+                                <script>
+                                    var InvPT = parseFloat(document.getElementById("InvPT").innerHTML);
+                                    var TotalProduccionD = InvPT + sumaCostoProduccion;
+                                </script>
+                                <td><script>document.write(TotalProduccionD)</script></td>
                             </tr>
                             <tr>
                                 <td>(-) Inventario Final de Productos Terminados</td>
                                 <td></td>
                                 <td></td>
-                                <td> 1,491,919 </td>
+                                <td><script>document.write(IF_PT_Total)</script></td>
                             </tr>
                             <tr>
+                                <script>var costodeventas = TotalProduccionD - IF_PT_Total;</script>
                                 <td>(=) Costo de Ventas</td>
                                 <td></td>
                                 <td></td>
-                                <td> $2,395,891 </td>
+                                <td><script>document.write(costodeventas)</script></td> 
                             </tr>
                             <tr>
                                 <td></td>
@@ -1978,49 +1992,60 @@
                                 <td>Ventas</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{Total_PV}}</td>
+                                <td id="Total_PV">{{Total_PV}}</td>
                             </tr>
                             <tr>
                                 <td>(-) Costo de Ventas</td>
                                 <td></td>
                                 <td></td>
-                                <td> 2,395,891 </td>
+                                <td><script>document.write(costodeventas)</script></td>
                             </tr>
+                            <script>
+                                var Total_PV = parseFloat(document.getElementById("Total_PV").innerHTML);
+                                var UtilidadBruta = Total_PV - costodeventas;
+                            </script>
                             <tr>
                                 <td>(=) Utilidad Bruta</td>
                                 <td></td>
                                 <td></td>
-                                <td> 14,837,109 </td>
+                                <td><script>document.write(UtilidadBruta)</script></td>
                             </tr>
                             <tr>
                                 <td>(-) Gastos de Operación</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{GOTotal}}</td>
+                                <td id="GOTotal">{{GOTotal}}</td>
                             </tr>
                             <tr>
+                                <script>var GOTotal = parseFloat(document.getElementById("GOTotal").innerHTML);</script>
+                                <script>var UtilidadDeOperacion =  UtilidadBruta - GOTotal;</script>
                                 <td>(=) Utilidad de Operación</td>
                                 <td></td>
                                 <td></td>
-                                <td> 14,376,779 </td>
+                                <td><script>document.write(UtilidadDeOperacion);</script></td>
                             </tr>
                             <tr>
                                 <td>(-) ISR</td>
+                                <script>var isr = UtilidadDeOperacion * 0.30;</script>
                                 <td></td>
                                 <td></td>
-                                <td> 4,313,034 </td>
+                                <td><script>document.write(isr)</script></td>
                             </tr>
                             <tr>
                                 <td>(-) PTU</td>
+                                <script>var ptu = UtilidadDeOperacion * 0.10;</script>
                                 <td></td>
                                 <td></td>
-                                <td> 1,437,678 </td>
+                                <td><script>document.write(ptu)</script></td>
                             </tr>
                             <tr>
+                                <script>
+                                    var UtilidadNeta = UtilidadDeOperacion - isr - ptu;
+                                </script>
                                 <td>(=) Utilidad Neta</td>
                                 <td></td>
                                 <td></td>
-                                <td> $8,626,068 </td>
+                                <td><script>document.write(UtilidadNeta);</script></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -2048,7 +2073,7 @@
                                 <td>Saldo Inicial de Efectivo</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{Efectivo}}</td>
+                                <td id="Efectivo">{{Efectivo}}</td>
                             </tr>
                             <tr>
                                 <td class="juan" colspan="1">Entradas:</td>
@@ -2057,28 +2082,33 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>Cobranza 2016</td>
+                                <td>Cobranza {{YearNow}}</td>
                                 <td></td>
-                                <td>{{VP_AAc}</td>
+                                <td><script>document.write(Por_Cobranza2001)</script></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>Cobranza 2015</td>
+                                <td>Cobranza {{Year}}</td>
                                 <td></td>
-                                <td>{{SC_AAn}}</td>
+                                <td><script>document.write(Por_Cobranza2000)</script></td>
                                 <td></td>
                             </tr>
+                            <script>
+                                var Efectivo = parseFloat(document.getElementById("Efectivo").innerHTML);
+                                var TotalEntradas = Por_Cobranza2000 + Por_Cobranza2001;
+                                var EfectivoDisponible = TotalEntradas + Efectivo;
+                            </script>
                             <tr>
                                 <td>Total de Entradas</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{TotalEntry}}</td>
+                                <td><script>document.write(TotalEntradas)</script></td>
                             </tr>
                             <tr>
                                 <td>Efectivo Disponible</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{EfectivoDisponible}}</td>
+                                <td><script>document.write(EfectivoDisponible)</script></td>
                             </tr>
                             <tr>
                                 <td>Salidas:</td>
@@ -2087,64 +2117,78 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>Proveedores 2016</td>
+                                <td>Proveedores {{YearNow}}</td>
                                 <td></td>
-                                <td> 1,070,505 </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Proveedores 2015</td>
-                                <td></td>
-                                <td>{{TotalProveedoresNow}</td>
+                                <td><script>document.write(clientesuma)</script></td>
                                 <td></td>
                             </tr>
                             <tr>
+                                <td >Proveedores {{Year}}}</td>
+                                <td></td>
+                                <td><script>document.write(tpn)</script></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <!-- <script>var PagoManoObraDir = clientesuma + tpn;</script> -->
                                 <td>Pago Mano de Obra Directa</td>
                                 <td></td>
-                                <td> 1,350,900 </td>
+                                <td><script>document.write(totalmodxsem3);</script></td> 
                                 <td></td>
                             </tr>
                             <tr>
+                                <script>
+                                    var GIF_D = parseFloat(document.getElementById("GIF_D").innerHTML);
+                                    var restaPGIF = TotalGIFT - GIF_D;
+                                </script>
                                 <td>Pago Gastos Indirectos de Fabricación</td>
                                 <td></td>
-                                <td> 183,000 </td>
+                                <td><script>document.write(restaPGIF)</script></td>
                                 <td></td>
                             </tr>
                             <tr>
+                                <script>var GAV_D = parseFloat(document.getElementById("GAV_D").innerHTML);</script>
+                                <script>var GOTOTAL = parseFloat(document.getElementById("GOTOTAL").innerHTML);</script>
+                                <script>var PagosDeGastosDeOperacion = GOTOTAL - GAV_D;</script>
                                 <td>Pago de Gastos de Operación</td>
                                 <td></td>
-                                <td> 445,330 </td>
+                                <td><script>document.write(PagosDeGastosDeOperacion);</script></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Compra de Activo Fijo</td>
                                 <td>&nbsp;</td>
-                                <td>{{Eq_Nv}}</td>
+                                <td id = "Eq_Nv">{{Eq_Nv}}</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>Pago ISR 2015</td>
                                 <td></td>
-                                <td>{{ISRxP}}</td>
+                                <td id = "ISRxP">{{ISRxP}}</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Pago ISR 2016</td>
                                 <td></td>
-                                <td> 4,313,034 </td>
+                                <td><script>document.write(isr)</script></td>
                                 <td></td>
                             </tr>
                             <tr>
+                                <script>var Eq_Nv = parseFloat(document.getElementById("Eq_Nv").innerHTML);;</script>
+                                <script>var ISRxP = parseFloat(document.getElementById("ISRxP").innerHTML);</script>
+                                <script>var TotalDeSalidas = clientesuma + totalmodxsem3 + tpn + restaPGIF + PagosDeGastosDeOperacion + Eq_Nv + ISRxP + isr;</script>
                                 <td>Total de Salidas</td>
                                 <td></td>
                                 <td></td>
-                                <td> 7,531,269 </td>
+                                <td><script>document.write(TotalDeSalidas)</script></td>
                             </tr>
                             <tr>
+                                <script>
+                                    var FlujoEfectivoActual = EfectivoDisponible - TotalDeSalidas;
+                                </script>
                                 <td>Flujo de Efectivo Actual</td>
                                 <td></td>
                                 <td></td>
-                                <td> $6,435,131 </td>
+                                <td><script>document.write(FlujoEfectivoActual);</script></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -2155,6 +2199,8 @@
                         </tbody>
                     </table>
                     <br></br>
+
+                    <div style="color: #8B54C7" id="DepA">{{DepA}}</div>
 
                     <table>
                         <thead>
@@ -2179,44 +2225,51 @@
                             <tr>
                                 <td>Efectivo</td>
                                 <td></td>
-                                <td> $6,435,131 </td>
+                                <td><script>document.write(FlujoEfectivoActual);</script></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Clientes</td>
                                 <td></td>
-                                <td>{{Saldo_Clientes2001}}</td>
+                                <td id="Saldo_Clientes2001">{{Saldo_Clientes2001}}</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Deudores Diversos</td>
                                 <td></td>
-                                <td>{{DD}}</td>
+                                <td id="DD">{{DD}}</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Funcionarios y Empleados</td>
                                 <td></td>
-                                <td>{{FunEmp}}</td>
+                                <td id="FunEmp">{{FunEmp}}</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Inventario de Materiales</td>
                                 <td></td>
-                                <td>{{IFM}}</td>
+                                <td id="IFM">{{IFM}}</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Inventario de Producto Terminado</td>
                                 <td></td>
-                                <td> 1,491,919 </td>
+                                <td><script>document.write(IF_PT_Total);</script></td>
                                 <td></td>
                             </tr>
+                            <script>
+                                var DD = parseFloat(document.getElementById("DD").innerHTML);
+                                var FunEmp = parseFloat(document.getElementById("FunEmp").innerHTML);
+                                var IFM = parseFloat(document.getElementById("IFM").innerHTML);
+                                var Saldo_Clientes2001 = parseFloat(document.getElementById("Saldo_Clientes2001").innerHTML);
+                                var Total_A_C = DD + FunEmp + IFM + IF_PT_Total + FlujoEfectivoActual + Saldo_Clientes2001;
+                            </script>
                             <tr>
                                 <td>Total de Activos Circulantes:</td>
                                 <td></td>
                                 <td></td>
-                                <td> $11,466,251 </td>
+                                <td><script>document.write(Total_A_C);</script></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -2233,26 +2286,32 @@
                             <tr>
                                 <td>Terreno</td>
                                 <td></td>
-                                <td>{{Terreno}}</td>
+                                <td id = "Terreno">{{Terreno}}</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Planta y Equipo</td>
                                 <td></td>
-                                <td>{{PyE}}</td>
+                                <td id = "PyE">{{PyETotal}}</td>
                                 <td></td>
                             </tr>
                             <tr>
+                                <script>var DepA = parseFloat(document.getElementById("DepA").innerHTML);</script>
+                                <script>var DepreciacionAcumulada = DepA + GAV_D + GIF_D;</script>
                                 <td>Depreciación Acumulada</td>
                                 <td></td>
-                                <td>{{DepA}}</td>
+                                <td><script>document.write(DepreciacionAcumulada);</script></td>
                                 <td></td>
+
                             </tr>
                             <tr>
                                 <td>Total Activos No Circulante</td>
+                                <script>var Terreno = parseFloat(document.getElementById("Terreno").innerHTML);</script>
+                                <script>var PlantaYEquipo = parseFloat(document.getElementById("PyE").innerHTML);</script>
+                                <script>var TotalActivosNoCirculante = Terreno + PlantaYEquipo - DepreciacionAcumulada;</script>
                                 <td></td>
                                 <td></td>
-                                <td> $1,745,000 </td>
+                                <td><script>document.write(TotalActivosNoCirculante);</script></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -2261,10 +2320,11 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>ACTIVO TOTAL</td>
+                                <td><strong>ACTIVO TOTAL</strong></td>
+                                <script>var ActivoTotal = Total_A_C + TotalActivosNoCirculante;</script>
                                 <td></td>
                                 <td></td>
-                                <td> $13,211,251 </td>
+                                <td><strong><script>document.write(ActivoTotal);</script></strong></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -2282,13 +2342,14 @@
                             <tr>
                                 <td>Proveedores</td>
                                 <td></td>
-                                <td> 1,070,505 </td>
+                                <td><script>document.write(SaldoDeProveedoresNow);</script></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Documentos por Pagar</td>
                                 <td></td>
-                                <td>{{DocPP}}</td>
+                                <td id="DocPP">{{DocPP}}</td>
+                                <script>var DocPP = parseFloat(document.getElementById("DocPP").innerHTML);</script>
                                 <td></td>
                             </tr>
                             <tr>
@@ -2300,14 +2361,15 @@
                             <tr>
                                 <td>PTU por Pagar</td>
                                 <td></td>
-                                <td> 1,437,678 </td>
+                                <td><script>document.write(ptu)</script></td>
                                 <td></td>
                             </tr>
                             <tr>
+                                <script>var TotalPasivoCortoPlazo = SaldoDeProveedoresNow+ DocPP + ptu;</script>
                                 <td>Total de Pasivo Corto Plazo:</td>
                                 <td></td>
                                 <td></td>
-                                <td> $2,603,183 </td>
+                                <td><script>document.write(TotalPasivoCortoPlazo)</script></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -2331,7 +2393,11 @@
                                 <td>Total de Pasivo Largo Plazo:</td>
                                 <td></td>
                                 <td></td>
-                                <td>{{PrBc}}</td>
+                                <td id="PrBc">{{PrBc}}</td>
+                                <script>
+                                    var PrBc = parseFloat(document.getElementById("PrBc").innerHTML);
+                                    var PasivoTotal = PrBc + TotalPasivoCortoPlazo;
+                                </script>
                             </tr>
                             <tr>
                                 <td></td>
@@ -2343,7 +2409,7 @@
                                 <td>PASIVO TOTAL</td>
                                 <td></td>
                                 <td></td>
-                                <td> $2,723,183 </td>
+                                <td><script>document.write(PasivoTotal);</script></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -2360,26 +2426,31 @@
                             <tr>
                                 <td>Capital Aportado</td>
                                 <td></td>
-                                <td>{{CapCon}}</td>
+                                <td id="CapCon">{{CapCon}}</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Capital Ganado</td>
                                 <td></td>
-                                <td>{{CapGan}}</td>
+                                <td id="CapGan">{{CapGan}}</td>
                                 <td></td>
                             </tr>
+                            <script>
+                                var CapCon = parseFloat(document.getElementById("CapCon").innerHTML);
+                                var CapGan = parseFloat(document.getElementById("CapGan").innerHTML);
+                                var TotalCapitalContable = CapCon + CapGan + UtilidadNeta;
+                            </script>
                             <tr>
                                 <td>Utilidad del Ejercicio</td>
                                 <td></td>
-                                <td> 8,626,068 </td>
+                                <td><script>document.write(UtilidadNeta)</script></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Total de Capital Contable</td>
                                 <td></td>
                                 <td></td>
-                                <td> $10,488,068 </td>
+                                <td><script>document.write(TotalCapitalContable)</script></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -2388,16 +2459,26 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>SUMA DE PASIVO Y CAPITAL</td>
+                                <script>
+                                    var PasivoCapital = TotalCapitalContable + PasivoTotal;
+                                </script>
+                                <td><strong>SUMA DE PASIVO Y CAPITAL</strong></td>
                                 <td></td>
                                 <td></td>
-                                <td> $13,211,251 </td>
+                                <td><strong><script>document.write(PasivoCapital)</script></strong></td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                            </tr>
+                            <tr>
+                                <script>
+                                    var RestaBalance = ActivoTotal - PasivoCapital;
+                                </script>
+                                <td colspan="3" style="text-align: rigth;">Resta entre <strong>Activo Total</strong> y la Suma de <strong>Pasivo y Capital</strong></td>
+                                <td style="text-align: center;"><script>document.write(RestaBalance)</script></td>
                             </tr>
                         </tbody>
                     </table>
